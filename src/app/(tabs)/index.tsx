@@ -1,3 +1,4 @@
+import { SUBJECT_META } from "@/components/subjects";
 import {
   Avatar,
   AvatarBadge,
@@ -15,17 +16,12 @@ import { Text } from "@/components/ui/text";
 
 import { Link, router } from "expo-router";
 import {
-  Activity,
   ArrowRight,
-  Atom,
   Bell,
-  BookOpen,
   Calculator,
-  CaseSensitive,
   CircleCheck,
   Clock3,
   Flame,
-  FlaskConical,
   Gem,
   Languages,
   Play,
@@ -47,52 +43,40 @@ const TEACHER_AVATAR =
 
 const SUBJECTS = [
   {
+    ...SUBJECT_META.maths,
     title: "သင်္ချာ",
     titleEn: "Maths",
-    icon: Calculator,
     lessons: 42,
-    tile: "bg-blue-200 dark:bg-blue-950",
-    iconColor: "text-blue-700 dark:text-blue-300",
   },
   {
+    ...SUBJECT_META.physics,
     title: "ရူပဗေဒ",
     titleEn: "Physics",
-    icon: Atom,
     lessons: 28,
-    tile: "bg-purple-200 dark:bg-purple-950",
-    iconColor: "text-purple-700 dark:text-purple-300",
   },
   {
+    ...SUBJECT_META.chemistry,
     title: "ဓာတု",
     titleEn: "Chemistry",
-    icon: FlaskConical,
     lessons: 31,
-    tile: "bg-emerald-200 dark:bg-emerald-950",
-    iconColor: "text-emerald-700 dark:text-emerald-300",
   },
   {
+    ...SUBJECT_META.english,
     title: "အင်္ဂလိပ်",
     titleEn: "English",
-    icon: CaseSensitive,
     lessons: 56,
-    tile: "bg-amber-200 dark:bg-amber-950",
-    iconColor: "text-amber-700 dark:text-amber-300",
   },
   {
+    ...SUBJECT_META.biology,
     title: "ဇီဝ",
     titleEn: "Biology",
-    icon: Activity,
     lessons: 19,
-    tile: "bg-rose-200 dark:bg-rose-950",
-    iconColor: "text-rose-700 dark:text-rose-300",
   },
   {
+    ...SUBJECT_META.myanmar,
     title: "မြန်မာ",
     titleEn: "Myanmar",
-    icon: BookOpen,
     lessons: 24,
-    tile: "bg-indigo-200 dark:bg-indigo-950",
-    iconColor: "text-indigo-700 dark:text-indigo-300",
   },
 ];
 
@@ -151,26 +135,30 @@ function examDaysLeft(from = new Date()): number {
   );
 }
 
-function SectionHeader({
+export function SectionHeader({
   title,
   action,
   onAction,
 }: {
   title: string;
-  action: string;
+  action?: string;
   onAction?: () => void;
 }) {
   return (
     <Box className="w-full flex justify-between items-center flex-row">
-      <Text className="font-heading text-[17px] text-foreground">{title}</Text>
-      <Pressable
-        onPress={onAction}
-        accessibilityRole="button"
-        accessibilityLabel={action}
-        className="px-2 py-1 rounded-full active:opacity-70"
-      >
-        <LinkText className="font-bold">{action}</LinkText>
-      </Pressable>
+      <Text className="font-heading text-[17px] text-foreground/80">
+        {title}
+      </Text>
+      {action ? (
+        <Pressable
+          onPress={onAction}
+          accessibilityRole="button"
+          accessibilityLabel={action}
+          className="px-2 py-1 rounded-full active:opacity-70"
+        >
+          <LinkText className="font-heading">{action}</LinkText>
+        </Pressable>
+      ) : null}
     </Box>
   );
 }
@@ -186,9 +174,12 @@ export default function Index() {
   };
 
   return (
-    <View className="flex-1 bg-background" style={{ paddingTop: insets.top }}>
+    <View
+      className="flex-1 bg-pg-background"
+      style={{ paddingTop: insets.top }}
+    >
       <ScrollView
-        className="flex-1 bg-background"
+        className="flex-1 bg-pg-background"
         contentContainerClassName="px-4"
         contentContainerStyle={{
           paddingBottom: Math.max(insets.bottom, 16) + 96,
@@ -354,7 +345,7 @@ export default function Index() {
           onPress={() => router.push("/(tabs)/practice")}
           accessibilityRole="button"
           accessibilityLabel="Resume Quadratic Equations chapter 3, 68 percent complete"
-          className="bg-card border border-border rounded-2xl w-full mt-3 p-4 active:opacity-90"
+          className="bg-card border border-border rounded-3xl w-full mt-3 p-4 active:opacity-90"
           style={{ elevation: 1 }}
         >
           <Box className="flex items-center justify-between flex-row w-full">
@@ -409,11 +400,11 @@ export default function Index() {
 
         {/* ── Exam countdown ───────────────────────────────── */}
         <View
-          className="bg-secondary rounded-2xl px-4 py-3.5 flex items-center flex-row justify-between mt-3 w-full"
+          className="bg-secondary rounded-3xl px-4 py-3.5 flex items-center flex-row justify-between mt-3 w-full"
           style={{ elevation: 1 }}
         >
           <View className="flex-row items-center gap-3 flex-1 min-w-0">
-            <Box className="w-14 h-14 bg-card rounded-2xl flex items-center justify-center shrink-0">
+            <Box className="w-14 h-14 bg-card rounded-3xl flex items-center justify-center shrink-0">
               <Text className="font-heading text-lg text-foreground">
                 {daysLeft}
               </Text>
@@ -458,11 +449,11 @@ export default function Index() {
                 onPress={() => router.push("/(tabs)/practice")}
                 accessibilityRole="button"
                 accessibilityLabel={`${item.title}, ${item.meta}`}
-                className="w-full bg-card rounded-2xl p-3.5 flex flex-row justify-between items-center border border-border active:opacity-90"
+                className="w-full bg-card rounded-3xl p-3.5 flex flex-row justify-between items-center border border-border active:opacity-90"
                 style={{ elevation: 1 }}
               >
                 <Box
-                  className={`${item.tile} w-[52px] h-[52px] rounded-2xl flex items-center justify-center shrink-0`}
+                  className={`${item.tile} w-[52px] h-[52px] rounded-3xl flex items-center justify-center shrink-0`}
                 >
                   <ThemedIcon
                     as={item.icon}
@@ -513,7 +504,7 @@ export default function Index() {
               {SUBJECTS.map((item) => (
                 <GridItem
                   key={item.titleEn}
-                  className="bg-card border border-border rounded-2xl p-3"
+                  className="bg-card border border-border rounded-3xl p-3"
                   _extra={{ className: "" }}
                 >
                   <Pressable
@@ -550,7 +541,7 @@ export default function Index() {
 
           {/* Social proof */}
           <View
-            className="bg-card border border-border rounded-2xl flex flex-row p-4 justify-between items-center mt-3"
+            className="bg-card border border-border rounded-3xl flex flex-row p-4 justify-between items-center mt-3"
             style={{ elevation: 1 }}
           >
             <AvatarGroup>

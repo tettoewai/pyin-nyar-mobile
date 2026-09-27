@@ -281,11 +281,11 @@ export default function TeacherChat() {
 
   return (
     <KeyboardAvoidingView
-      className="flex-1 bg-background"
+      className="flex-1 bg-pg-background"
       behavior={Platform.OS === "ios" ? "padding" : "height"}
       keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 0}
     >
-      <View className="flex-1 bg-background">
+      <View className="flex-1 bg-pg-background">
         {/* ── Header ─────────────────────────────────────────── */}
         <View
           className="bg-card border-b border-border px-3 pb-3 shadow-sm"

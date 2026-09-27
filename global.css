@@ -22,7 +22,7 @@
 
     @variant light {
       /* Brand */
-      --primary: 14 122 90;
+      --primary: 3 107 76;
       --primary-foreground: 255 255 255;
 
       /* Base surfaces */
@@ -46,8 +46,8 @@
       --muted-foreground: 101 110 106;
 
       /* Accent */
-      --accent: 235 242 239;
-      --accent-foreground: 8 82 64;
+      --accent: 237 231 255;
+      --accent-foreground: 35 36 30;
 
       /* Destructive */
       --destructive: 220 38 38;

@@ -184,9 +184,12 @@ export default function Tutor() {
   );
 
   return (
-    <View className="flex-1 bg-background" style={{ paddingTop: insets.top }}>
+    <View
+      className="flex-1 bg-pg-background"
+      style={{ paddingTop: insets.top }}
+    >
       <ScrollView
-        className="flex-1 bg-background"
+        className="flex-1 bg-pg-background"
         contentContainerClassName="px-4"
         contentContainerStyle={{
           paddingBottom: Math.max(insets.bottom, 16) + 96,
@@ -227,7 +230,7 @@ export default function Tutor() {
             accessibilityRole="button"
             accessibilityLabel="Start a new chat"
             accessibilityHint="Focuses the search field to find a teacher"
-            className="rounded-full bg-primary w-14 h-14 justify-center items-center active:opacity-80"
+            className="rounded-full bg-primary w-12 h-12 justify-center items-center active:opacity-80"
             style={{ elevation: 2 }}
           >
             <ThemedIcon
