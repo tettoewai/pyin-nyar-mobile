@@ -22,6 +22,7 @@ import {
   BookOpen,
   Calculator,
   CaseSensitive,
+  CircleDashed,
   Flame,
   FlaskConical,
   Gem,
@@ -30,8 +31,10 @@ import {
   SendHorizonal,
 } from "lucide-react-native";
 import { ScrollView, View } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function Index() {
+  const insets = useSafeAreaInsets();
   const subjects = [
     {
       title: "သင်္ချာ",
@@ -106,12 +109,16 @@ export default function Index() {
   ];
 
   return (
-    <ScrollView
+    <View
       className="flex-1 bg-pg-background"
-      contentContainerClassName="px-3 pb-32"
-      showsVerticalScrollIndicator={false}
+      style={{ paddingTop: insets.top }}
     >
-      <View className="w-full mt-10 py-2 flex flex-row justify-between">
+      <ScrollView
+        className="flex-1 bg-pg-background"
+        contentContainerClassName="px-3 pb-36"
+        showsVerticalScrollIndicator={false}
+      >
+        <View className="w-full py-2 flex flex-row justify-between">
         <View className="flex flex-row">
           <Avatar className="bg-primary">
             <AvatarFallbackText className="text-primary-foreground">
@@ -189,7 +196,7 @@ export default function Index() {
         <View className="bg-white/10 absolute -bottom-26 left-16 rounded-full size-40 -z-10" />
       </Card>
 
-      <Box className="bg-card rounded-2xl w-full mt-3 p-4 flex">
+      <View className="bg-card rounded-2xl w-full mt-3 p-4 flex">
         <Box className="flex items-center justify-between flex-row w-full">
           <Box className="flex flex-row gap-3 items-center justify-center">
             <Box className="flex items-center justify-center bg-primary size-10 rounded-md">
@@ -217,7 +224,7 @@ export default function Index() {
             <ButtonText>Resume</ButtonText>
           </Button>
         </Box>
-      </Box>
+      </View>
       <Box className="bg-secondary/80 rounded-2xl px-4 py-3 flex items-center flex-row justify-between mt-3 w-full">
         <Box className="size-16 bg-background rounded-2xl flex items-center justify-center">
           <ThemedIcon as={Book} className="size-10" />
@@ -230,11 +237,13 @@ export default function Index() {
             Daily mock test ready --- 20 questions
           </Text>
         </Box>
-        <Button className="bg-secondary-foreground rounded-full py-4 px-6">
-          <ButtonText>Start</ButtonText>
+        <Button className="bg-card rounded-full py-4 px-6">
+          <ButtonText className="text-card-foreground font-heading">
+            Start
+          </ButtonText>
         </Button>
       </Box>
-      <Box className="mt-4 w-full">
+      <View className="mt-4 w-full">
         <Box className="w-full flex justify-between items-center flex-row">
           <Text className="font-heading text-lg">
             Today's pratice • လေးကျင့်ခန်း
@@ -277,7 +286,7 @@ export default function Index() {
             </Button>
           </Box>
         </Box>
-      </Box>
+      </View>
 
       <Box className="mt-4 w-full">
         <Box className="flex flex-row justify-between">
@@ -286,7 +295,7 @@ export default function Index() {
             <LinkText>See all</LinkText>
           </Link>
         </Box>
-        <Box className="w-full mt-2">
+        <View className="w-full mt-2">
           <Grid className="gap-2" _extra={{ className: "grid-cols-3" }}>
             {subjects.map((item) => (
               <GridItem
@@ -309,7 +318,7 @@ export default function Index() {
               </GridItem>
             ))}
           </Grid>
-        </Box>
+        </View>
         <Box className="bg-card rounded-2xl flex flex-row p-4 justify-between mt-4">
           <AvatarGroup>
             {avatars.slice(0, 3).map((avatar, index) => (
@@ -336,6 +345,12 @@ export default function Index() {
           </Button>
         </Box>
       </Box>
-    </ScrollView>
+
+      <Box className="w-full flex justify-center items-center mt-16">
+        <ThemedIcon as={CircleDashed} className="text-accent-foreground" />
+        <Text className="text-accent-foreground">The end</Text>
+      </Box>
+      </ScrollView>
+    </View>
   );
 }

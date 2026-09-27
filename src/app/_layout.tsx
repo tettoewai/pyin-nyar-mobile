@@ -11,6 +11,8 @@ import {
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
+import { StatusBar, useColorScheme } from "react-native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -22,6 +24,8 @@ export default function RootLayout() {
     "Nunito-ExtraBold": Nunito_800ExtraBold,
   });
 
+  const colorScheme = useColorScheme() ?? "light";
+
   useEffect(() => {
     if (fontsLoaded) {
       SplashScreen.hideAsync();
@@ -31,7 +35,14 @@ export default function RootLayout() {
   if (!fontsLoaded) return null;
   return (
     <GluestackUIProvider mode="system">
-      <Stack screenOptions={{ headerShown: false }} />
+      <SafeAreaProvider>
+        <StatusBar
+          barStyle={colorScheme === "dark" ? "light-content" : "dark-content"}
+          backgroundColor="transparent"
+          translucent
+        />
+        <Stack screenOptions={{ headerShown: false }} />
+      </SafeAreaProvider>
     </GluestackUIProvider>
   );
 }

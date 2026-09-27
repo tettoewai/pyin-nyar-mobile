@@ -39,7 +39,7 @@
 
       /* Secondary */
       --secondary: 255 176 32;
-      --secondary-foreground: 35 43 40;
+      --secondary-foreground: 255 255 255;
 
       /* Muted */
       --muted: 243 245 244;
