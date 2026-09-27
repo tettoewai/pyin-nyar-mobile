@@ -117,10 +117,16 @@ const FILTERS = [
   "Myanmar",
 ];
 
-function SectionLabel({ title, right }: { title: string; right?: string }) {
+export function SectionLabel({
+  title,
+  right,
+}: {
+  title: string;
+  right?: string;
+}) {
   return (
     <View className="mt-5 flex flex-row items-center justify-between">
-      <Text className="font-heading text-[12px] tracking-widest text-muted-foreground">
+      <Text className="font-heading text-[12px] tracking-widest text-muted-foreground leading-loose">
         {title}
       </Text>
       {right ? (
@@ -221,7 +227,7 @@ export default function Tutor() {
                 </Box>
               ) : null}
             </View>
-            <Text className="font-body text-[13px] text-muted-foreground mt-0.5">
+            <Text className="font-body text-[13px] text-muted-foreground mt-0.5 leading-loose">
               ဆရာ/ဆရာမများနဲ့ စကားပြောပါ
             </Text>
           </Box>

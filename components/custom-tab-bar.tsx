@@ -1,6 +1,6 @@
 import { Tabs } from "expo-router";
 import {
-  BookOpenText,
+  ClipboardList,
   House,
   MessageCircle,
   UserRound,
@@ -20,7 +20,7 @@ type CustomTabBarProps = Parameters<
 const TAB_ICONS: Record<string, LucideIcon> = {
   index: House,
   tutor: MessageCircle,
-  practice: BookOpenText,
+  practice: ClipboardList,
   profile: UserRound,
 };
 
@@ -49,9 +49,7 @@ function TabItem({ label, icon, focused, onPress }: TabItemProps) {
         }
       />
       <Text
-        className={
-          focused ? "text-primary-foreground" : "text-muted-foreground"
-        }
+        className={`font-heading ${focused ? "text-primary-foreground" : "text-muted-foreground"}`}
       >
         {label}
       </Text>

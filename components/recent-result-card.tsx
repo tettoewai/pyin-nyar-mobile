@@ -59,7 +59,10 @@ export function RecentResultCard({
       </View>
       <View className="flex-1 min-w-0 gap-0.5">
         <View className="flex flex-row gap-2 items-end flex-1 min-w-0 shrink">
-          <Text className="font-heading text-lg" numberOfLines={1}>
+          <Text
+            className="font-heading text-lg leading-loose"
+            numberOfLines={1}
+          >
             {title}
           </Text>
           <Text

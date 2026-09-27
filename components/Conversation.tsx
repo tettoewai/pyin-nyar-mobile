@@ -6,8 +6,8 @@ import {
 import { Box } from "@/components/ui/box";
 import { ThemedIcon } from "@/components/ui/icon";
 import { Text } from "@/components/ui/text";
-import { CheckCheck, Verified } from "lucide-react-native";
 import { Link } from "expo-router";
+import { CheckCheck, Verified } from "lucide-react-native";
 import type { ComponentProps } from "react";
 import { Pressable, View, type ImageSourcePropType } from "react-native";
 
@@ -107,7 +107,7 @@ export default function Conversation({
         {/* Subject tag */}
         {subject ? (
           <Box className="bg-secondary self-start rounded-full px-3 py-1">
-            <Text className="font-body text-secondary-foreground text-xs">
+            <Text className="font-body text-secondary-foreground text-xs leading-loose">
               {subject}
             </Text>
           </Box>
@@ -118,7 +118,7 @@ export default function Conversation({
           <Box className="w-full flex flex-row items-center gap-2">
             {preview ? (
               <Text
-                className={`font-body flex-1 min-w-0 text-sm ${hasUnread ? "text-foreground font-bold" : "text-muted-foreground"}`}
+                className={`font-body flex-1 min-w-0 text-sm leading-loose ${hasUnread ? "text-foreground font-bold" : "text-muted-foreground"}`}
                 numberOfLines={1}
                 ellipsizeMode="tail"
               >

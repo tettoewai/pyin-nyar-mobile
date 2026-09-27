@@ -4,10 +4,10 @@ import {
   AvatarBadge,
   AvatarFallbackText,
   AvatarGroup,
+  AvatarImage,
 } from "@/components/ui/avatar";
 import { Box } from "@/components/ui/box";
 import { Button, ButtonIcon, ButtonText } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
 import { Grid, GridItem } from "@/components/ui/grid";
 import { ThemedIcon } from "@/components/ui/icon";
 import { LinkText } from "@/components/ui/link";
@@ -25,9 +25,11 @@ import {
   Gem,
   Languages,
   Play,
+  Plus,
   SendHorizontal,
   Sparkles,
 } from "lucide-react-native";
+import type { ReactNode } from "react";
 import { useMemo, useState } from "react";
 import {
   Image,
@@ -36,6 +38,15 @@ import {
   ScrollView,
   View,
 } from "react-native";
+import type { SharedValue } from "react-native-reanimated";
+import Animated, {
+  Extrapolation,
+  interpolate,
+  useAnimatedStyle,
+  useSharedValue,
+  withSpring,
+  withTiming,
+} from "react-native-reanimated";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const TEACHER_AVATAR =
@@ -146,7 +157,7 @@ export function SectionHeader({
 }) {
   return (
     <Box className="w-full flex justify-between items-center flex-row">
-      <Text className="font-heading text-[17px] text-foreground/80">
+      <Text className="font-heading text-md text-foreground/80 leading-loose">
         {title}
       </Text>
       {action ? (
@@ -156,10 +167,59 @@ export function SectionHeader({
           accessibilityLabel={action}
           className="px-2 py-1 rounded-full active:opacity-70"
         >
-          <LinkText className="font-heading">{action}</LinkText>
+          <LinkText className="font-heading text-md">{action}</LinkText>
         </Pressable>
       ) : null}
     </Box>
+  );
+}
+
+const FAN_SHADOW = {
+  elevation: 6,
+  shadowColor: "#000",
+  shadowOffset: { width: 0, height: 3 },
+  shadowOpacity: 0.15,
+  shadowRadius: 6,
+};
+
+function FanItem({
+  progress,
+  index,
+  onPress,
+  label,
+  children,
+}: {
+  progress: SharedValue<number>;
+  index: number;
+  onPress: () => void;
+  label: string;
+  children: ReactNode;
+}) {
+  const animatedStyle = useAnimatedStyle(() => {
+    const t = interpolate(
+      progress.value,
+      [index * 0.12, 1],
+      [0, 1],
+      Extrapolation.CLAMP,
+    );
+    return {
+      opacity: t,
+      transform: [{ translateY: (1 - t) * -14 }, { scale: 0.85 + t * 0.15 }],
+    };
+  });
+
+  return (
+    <Animated.View style={animatedStyle}>
+      <Pressable
+        onPress={onPress}
+        accessibilityRole="button"
+        accessibilityLabel={label}
+        className="flex-row items-center gap-2 rounded-full border border-border bg-card pl-3 pr-4 py-2.5 active:opacity-80"
+        style={FAN_SHADOW}
+      >
+        {children}
+      </Pressable>
+    </Animated.View>
   );
 }
 
@@ -167,6 +227,25 @@ export default function Index() {
   const insets = useSafeAreaInsets();
   const [refreshing, setRefreshing] = useState(false);
   const daysLeft = useMemo(() => examDaysLeft(), []);
+  const [hubOpen, setHubOpen] = useState(false);
+  const hubProgress = useSharedValue(0);
+
+  const setHub = (next: boolean) => {
+    setHubOpen(next);
+    // Spring in for the playful fan-out; timed fade out so the spring
+    // can't overshoot back above 0 and ghost the pills after closing.
+    hubProgress.value = next
+      ? withSpring(1, { damping: 20, stiffness: 300 })
+      : withTiming(0, { duration: 180 });
+  };
+
+  const hubIconStyle = useAnimatedStyle(() => ({
+    transform: [{ rotate: `${hubProgress.value * 45}deg` }],
+  }));
+  const hubDotStyle = useAnimatedStyle(() => ({
+    opacity: 1 - hubProgress.value,
+    transform: [{ scale: 1 - hubProgress.value * 0.5 }],
+  }));
 
   const onRefresh = () => {
     setRefreshing(true);
@@ -178,6 +257,14 @@ export default function Index() {
       className="flex-1 bg-pg-background"
       style={{ paddingTop: insets.top }}
     >
+      {hubOpen ? (
+        <Pressable
+          onPress={() => setHub(false)}
+          accessibilityRole="button"
+          accessibilityLabel="Close quick stats"
+          className="absolute inset-0 z-40"
+        />
+      ) : null}
       <ScrollView
         className="flex-1 bg-pg-background"
         contentContainerClassName="px-4"
@@ -192,10 +279,15 @@ export default function Index() {
         {/* ── Greeting ─────────────────────────────────────── */}
         <View className="w-full pt-2 pb-1 flex flex-row justify-between items-center">
           <View className="flex flex-row items-center flex-1 min-w-0">
-            <Avatar size="md" className="bg-primary">
+            <Avatar size="md" className="bg-primary border-2 border-primary">
               <AvatarFallbackText className="text-primary-foreground font-bold">
                 Th
               </AvatarFallbackText>
+              <AvatarImage
+                source={{
+                  uri: "https://storage.googleapis.com/banani-avatars/avatar/female/13-17/Southeast Asian/8",
+                }}
+              />
             </Avatar>
             <View className="ml-2.5 flex-1 min-w-0">
               <Text
@@ -213,45 +305,35 @@ export default function Index() {
               </Text>
             </View>
           </View>
-          <View className="flex flex-row gap-1.5 items-center shrink-0">
+          <View className="shrink-0">
             <Pressable
+              onPress={() => setHub(!hubOpen)}
               accessibilityRole="button"
-              accessibilityLabel="12 day streak"
-              className="flex-row items-center gap-1 rounded-full border border-border bg-card px-3 py-2 active:opacity-70"
-            >
-              <ThemedIcon as={Flame} size={15} className="text-red-500" />
-              <Text className="font-heading text-[13px] text-foreground">
-                12
-              </Text>
-            </Pressable>
-            <Pressable
-              accessibilityRole="button"
-              accessibilityLabel="240 gems"
-              className="flex-row items-center gap-1 rounded-full border border-border bg-card px-3 py-2 active:opacity-70"
-            >
-              <ThemedIcon as={Gem} size={15} className="text-blue-500" />
-              <Text className="font-heading text-[13px] text-foreground">
-                240
-              </Text>
-            </Pressable>
-            <Pressable
-              accessibilityRole="button"
-              accessibilityLabel="Notifications, 2 unread"
+              accessibilityLabel={
+                hubOpen ? "Close quick stats" : "Open quick stats"
+              }
+              accessibilityHint="Shows streak, gems and notifications"
+              accessibilityState={{ expanded: hubOpen }}
               className="relative w-10 h-10 rounded-full border border-border bg-card items-center justify-center active:opacity-70"
             >
-              <ThemedIcon
-                as={Bell}
-                size={17}
-                className="text-muted-foreground"
-              />
-              <View className="absolute top-2 right-2.5 w-2 h-2 rounded-full bg-destructive border border-card" />
+              <Animated.View style={hubIconStyle}>
+                <ThemedIcon as={Plus} size={18} className="text-foreground" />
+              </Animated.View>
+              <Animated.View
+                style={[
+                  { position: "absolute", top: 8, right: 10 },
+                  hubDotStyle,
+                ]}
+              >
+                <View className="w-2 h-2 rounded-full bg-destructive border border-card" />
+              </Animated.View>
             </Pressable>
           </View>
         </View>
 
         {/* ── AI teacher hero ──────────────────────────────── */}
-        <Card
-          className="rounded-3xl bg-primary overflow-hidden mt-3 border-0"
+        <Box
+          className="rounded-3xl bg-primary overflow-hidden mt-3 border-0 p-4"
           style={{ elevation: 3 }}
         >
           <View className="flex-row w-full items-center">
@@ -322,7 +404,7 @@ export default function Index() {
                 accessibilityLabel={`Ask: ${s}`}
                 className="shrink-0 bg-primary-foreground/10 border border-primary-foreground/25 px-3.5 py-2 rounded-full active:opacity-80"
               >
-                <Text className="text-primary-foreground text-[13px] font-body">
+                <Text className="text-primary-foreground text-[13px] font-body leading-loose">
                   {s}
                 </Text>
               </Pressable>
@@ -338,7 +420,7 @@ export default function Index() {
             pointerEvents="none"
             className="bg-black/10 absolute -bottom-24 left-16 rounded-full w-40 h-40"
           />
-        </Card>
+        </Box>
 
         {/* ── Continue learning ────────────────────────────── */}
         <Pressable
@@ -522,7 +604,7 @@ export default function Index() {
                         className={item.iconColor}
                       />
                     </Box>
-                    <Text className="font-heading text-[15px] text-foreground">
+                    <Text className="font-heading text-[15px] text-foreground leading-loose">
                       {item.title}
                     </Text>
                     <Text className="font-body text-[12px] text-muted-foreground">
@@ -586,6 +668,48 @@ export default function Index() {
           </Text>
         </Box>
       </ScrollView>
+
+      {/* ── Collapsed quick-stats hub ──────────────────────── */}
+      <View
+        className="absolute right-4 z-50 items-end gap-2"
+        style={{ top: insets.top + 56 }}
+        pointerEvents={hubOpen ? "auto" : "none"}
+      >
+        <FanItem
+          progress={hubProgress}
+          index={0}
+          onPress={() => setHub(false)}
+          label="12 day streak"
+        >
+          <ThemedIcon as={Flame} size={15} className="text-red-500" />
+          <Text className="font-heading text-[13px] text-foreground">
+            12-day streak
+          </Text>
+        </FanItem>
+        <FanItem
+          progress={hubProgress}
+          index={1}
+          onPress={() => setHub(false)}
+          label="240 gems"
+        >
+          <ThemedIcon as={Gem} size={15} className="text-blue-500" />
+          <Text className="font-heading text-[13px] text-foreground">
+            240 gems
+          </Text>
+        </FanItem>
+        <FanItem
+          progress={hubProgress}
+          index={2}
+          onPress={() => setHub(false)}
+          label="Notifications, 2 unread"
+        >
+          <ThemedIcon as={Bell} size={15} className="text-muted-foreground" />
+          <Text className="font-heading text-[13px] text-foreground">
+            2 unread
+          </Text>
+          <View className="w-2 h-2 rounded-full bg-destructive" />
+        </FanItem>
+      </View>
     </View>
   );
 }

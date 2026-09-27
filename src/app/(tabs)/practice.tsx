@@ -12,73 +12,67 @@ import { Button, ButtonText } from "@/components/ui/button";
 import { Grid, GridItem } from "@/components/ui/grid";
 import { ThemedIcon } from "@/components/ui/icon";
 import { Text } from "@/components/ui/text";
-import {
-  Bell,
-  CircleCheck,
-  RefreshCcw,
-  Timer,
-  Zap,
-} from "lucide-react-native";
+import { Bell, CircleCheck, RefreshCcw, Timer, Zap } from "lucide-react-native";
 import { useRef, useState } from "react";
 import { Pressable, RefreshControl, ScrollView, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { SectionHeader } from ".";
 
+export const subjectTasks: SubjectTask[] = [
+  {
+    ...SUBJECT_META.maths,
+    title: "သင်္ချာ",
+    titleEn: "Math",
+    totalQuestion: 120,
+    done: 94,
+    subTitle: "Chapter 3",
+  },
+  {
+    ...SUBJECT_META.physics,
+    title: "ရူပဗေဒ",
+    titleEn: "Phys",
+    totalQuestion: 100,
+    done: 61,
+    subTitle: "Chapter 5",
+  },
+  {
+    ...SUBJECT_META.chemistry,
+    title: "ဓာတုဗေဒ",
+    titleEn: "Chem",
+    totalQuestion: 110,
+    done: 78,
+    subTitle: "Chapter 4",
+  },
+  {
+    ...SUBJECT_META.biology,
+    title: "ဇီဝဗေဒ",
+    titleEn: "Bio",
+    totalQuestion: 90,
+    done: 45,
+    subTitle: "Chapter 2",
+  },
+  {
+    ...SUBJECT_META.english,
+    title: "အင်္ဂလိပ်",
+    titleEn: "Eng",
+    totalQuestion: 100,
+    done: 88,
+    subTitle: "Unit 7",
+  },
+  {
+    ...SUBJECT_META.myanmar,
+    title: "မြန်မာစာ",
+    titleEn: "Myan",
+    totalQuestion: 95,
+    done: 70,
+    subTitle: "အခန်း ၆",
+  },
+];
+
 export default function Tutor() {
   const insets = useSafeAreaInsets();
   const searchRef = useRef<any>(null);
   const [refreshing, setRefreshing] = useState(false);
-
-  const subjectTasks: SubjectTask[] = [
-    {
-      ...SUBJECT_META.maths,
-      title: "သင်္ချာ",
-      titleEn: "Math",
-      totalQuestion: 120,
-      done: 94,
-      subTitle: "Chapter 3",
-    },
-    {
-      ...SUBJECT_META.physics,
-      title: "ရူပဗေဒ",
-      titleEn: "Phys",
-      totalQuestion: 100,
-      done: 61,
-      subTitle: "Chapter 5",
-    },
-    {
-      ...SUBJECT_META.chemistry,
-      title: "ဓာတုဗေဒ",
-      titleEn: "Chem",
-      totalQuestion: 110,
-      done: 78,
-      subTitle: "Chapter 4",
-    },
-    {
-      ...SUBJECT_META.biology,
-      title: "ဇီဝဗေဒ",
-      titleEn: "Bio",
-      totalQuestion: 90,
-      done: 45,
-      subTitle: "Chapter 2",
-    },
-    {
-      ...SUBJECT_META.english,
-      title: "အင်္ဂလိပ်",
-      titleEn: "Eng",
-      totalQuestion: 100,
-      done: 88,
-      subTitle: "Unit 7",
-    },
-    {
-      ...SUBJECT_META.myanmar,
-      title: "မြန်မာစာ",
-      titleEn: "Myan",
-      totalQuestion: 95,
-      done: 70,
-      subTitle: "အခန်း ၆",
-    },
-  ];
 
   const recentResults: RecentResult[] = [
     {
@@ -141,7 +135,7 @@ export default function Tutor() {
                 Tests
               </Text>
             </View>
-            <Text className="font-body text-[13px] text-muted-foreground mt-0.5">
+            <Text className="font-body text-[13px] text-muted-foreground mt-0.5 leading-loose">
               စာမေးပွဲ ပြင်ဆင်ခြင်း • Matric & Chapter
             </Text>
           </Box>
@@ -258,7 +252,10 @@ export default function Tutor() {
           <SectionHeader title="Recent Results • မကြာသေးမီဖြေဆိုမှုများ" />
           <View className="mt-2 gap-2">
             {recentResults.map((result) => (
-              <RecentResultCard key={`${result.id}-${result.date}`} result={result} />
+              <RecentResultCard
+                key={`${result.id}-${result.date}`}
+                result={result}
+              />
             ))}
           </View>
         </View>

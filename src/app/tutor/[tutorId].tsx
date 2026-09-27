@@ -343,7 +343,7 @@ export default function TeacherChat() {
                 <View className="w-1.5 h-1.5 rounded-full bg-primary" />
                 <Text
                   numberOfLines={1}
-                  className="font-body text-xs text-muted-foreground"
+                  className="font-body text-xs text-muted-foreground leading-loose"
                 >
                   Online · {meta.subject}
                   {sending ? " · typing…" : ""}
@@ -413,7 +413,7 @@ export default function TeacherChat() {
                 </View>
               </View>
               <View className="mt-2 bg-primary rounded-2xl rounded-br-md px-4 py-3 shadow-sm">
-                <Text className="font-body font-medium text-[14px] text-primary-foreground leading-snug">
+                <Text className="font-body font-medium text-[14px] text-primary-foreground leading-loose">
                   ဒီပုစ္ဆာလေး ရှင်းပြပေးပါ — x² + 5x + 6 = 0 ကို factor နဲ့
                   ဘယ်လိုဖြေလဲ?
                 </Text>
@@ -450,7 +450,7 @@ export default function TeacherChat() {
                       size={14}
                     />
                   </View>
-                  <Text className="font-heading font-extrabold text-[13.5px] text-foreground flex-1 leading-snug">
+                  <Text className="font-heading font-extrabold text-[13.5px] text-foreground flex-1 leading-loose">
                     Got it! Let’s solve together — အတူတူဖြေကြမယ်
                   </Text>
                 </View>
@@ -510,7 +510,7 @@ export default function TeacherChat() {
                             {step.title}
                           </Text>
                           <Text
-                            className={`font-body text-[13.5px] leading-snug mt-0.5 ${step.highlight ? "font-heading font-extrabold text-primary" : "text-muted-foreground font-medium"}`}
+                            className={`font-body text-[13.5px] leading-loose mt-0.5 ${step.highlight ? "font-heading font-extrabold text-primary" : "text-muted-foreground font-medium"}`}
                           >
                             {step.detail}
                           </Text>
@@ -558,7 +558,7 @@ export default function TeacherChat() {
               {showChips && (
                 <View className="flex-col gap-1.5">
                   <View className="flex-row items-center justify-between px-0.5">
-                    <Text className="font-body font-bold text-[11px] text-muted-foreground tracking-wide">
+                    <Text className="font-body font-bold text-[11px] text-muted-foreground tracking-wide leading-loose">
                       SUGGESTED • အကြံပြုစကား
                     </Text>
                     <Pressable
@@ -699,7 +699,7 @@ export default function TeacherChat() {
               <View key={msg.id} className="flex-row justify-end">
                 <View className="max-w-[85%]">
                   <View className="bg-primary rounded-2xl rounded-br-md px-4 py-3 shadow-sm">
-                    <Text className="font-body font-medium text-[14px] text-primary-foreground leading-snug">
+                    <Text className="font-body font-medium text-[14px] text-primary-foreground leading-loose">
                       {msg.text}
                     </Text>
                   </View>
@@ -723,7 +723,7 @@ export default function TeacherChat() {
                 />
                 <View className="flex-1 min-w-0">
                   <View className="bg-card border border-border rounded-2xl rounded-tl-md p-4 shadow-sm">
-                    <Text className="font-body font-medium text-[14px] text-foreground leading-snug">
+                    <Text className="font-body font-medium text-[14px] text-foreground leading-loose">
                       {msg.text}
                     </Text>
                   </View>
@@ -860,7 +860,7 @@ export default function TeacherChat() {
             )}
           </View>
 
-          <Text className="mt-1.5 text-center font-body text-[11px] text-muted-foreground">
+          <Text className="mt-1.5 text-center font-body text-[11px] text-muted-foreground leading-loose">
             AI tutor can make mistakes — steps ကို သေချာစစ်ပါ ✓
           </Text>
         </View>
