@@ -16,14 +16,12 @@ import {
   Mic,
   Pause,
   PenLine,
-  Phone,
   Play,
   Plus,
   SendHorizontal,
   Sparkles,
   ThumbsDown,
   ThumbsUp,
-  Video,
   X,
 } from "lucide-react-native";
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -64,17 +62,20 @@ type DynamicMessage = {
 const STEPS = [
   {
     title: "Find two numbers",
-    detail: "ပေါင်းရင် 5၊ မြှောက်ရင် 6 ရမယ် → 2 နဲ့ 3",
+    detail:
+      "ပေါင်းရင် 5၊ မြှောက်ရင် 6 ဖြစ်မယ့် ဂဏန်းနှစ်လုံးကို ရှာပါ → 2 နဲ့ 3 (b နဲ့ c ကို ကြည့်ရင် ရှာလို့ရတယ်)",
     highlight: false,
   },
   {
     title: "Write as factors",
-    detail: "(x + 2)(x + 3) = 0",
+    detail:
+      "ရလာတဲ့ ဂဏန်းနှစ်လုံးကို (x + _)(x + _) ပုံစံထဲ ထည့်ပါ → (x + 2)(x + 3) = 0",
     highlight: true,
   },
   {
     title: "Answer: x = −2, −3 🎉",
-    detail: "အစားထိုးစစ်ကြည့် — မှန်တယ်!",
+    detail:
+      "each factor ကို 0 ဖြစ်အောင် ဖြေပါ (x + 2 = 0 or x + 3 = 0)၊ ပြီးရင် မူရင်းညီမျှခြင်းထဲ အစားထိုးစစ်ကြည့် — မှန်ကန်ကြောင်း သက်သေပြနိုင်ပါတယ်!",
     highlight: false,
   },
 ];
@@ -113,18 +114,18 @@ const ATTACH_ACTIONS = [
 function cannedReply(text: string): string {
   const t = text.toLowerCase();
   if (t.includes("quiz"))
-    return "Quiz ready! ✍️\n1) x² + 7x + 12 = 0 ကို factor ခွဲကြည့်\n2) x² − 9 = 0 ရဲ့ အဖြေက ဘာလဲ?\n3) (x+4)(x+1) ကို ဖြန့်ကြည့် — ပြီးရင် ပို့လိုက်ပါ!";
+    return "Practice quiz ✍️ (algebra ရဲ့ factoring ကို လေ့ကျင့်ကြမယ်)\n1) x² + 7x + 12 = 0 ကို factor ခွဲပါ (Easy)\n2) x² − 9 = 0 ရဲ့ root နှစ်ခုကို ရှာပါ (Medium)\n3) (x + 4)(x + 1) ကို expand လုပ်ပြီး original quadratic ပုံစံရေးပါ (Check your work)\nဖြေပြီးရင် ပို့လိုက်ပါ — အဆင့်ဆင့် ပြန်ကြည့်ပေးမယ်!";
   if (t.includes("why"))
-    return "Good question! 🤔 2 နဲ့ 3 ကို ရွေးရတာက — ပေါင်းရင် 5 (middle term)၊ မြှောက်ရင် 6 (constant) ရလို့ပါ။ ဒါကို FOIL နဲ့ ပြန်စစ်ကြည့်လို့ရတယ်!";
+    return "Good question! 🤔 2 နဲ့ 3 ကို ရွေးရတာက x² + 5x + 6 ရဲ့ middle term (5) နဲ့ constant (6) ကို ကိုက်ညီအောင် လုပ်ထားလို့ပါ — ပေါင်းရင် 5၊ မြှောက်ရင် 6 ဖြစ်တဲ့ တစ်တွဲတည်းသာ ရှိတယ်။ (x + 2)(x + 3) ကို FOIL နဲ့ ပြန်ဖြန့်ကြည့်ရင် x² + 5x + 6 ပြန်ရမယ် — ဒါက ကျွန်တော်တို့ အဖြေမှန်ကြောင်း သက်သေခံနည်းပါ!";
   if (t.includes("next"))
-    return "Next step → အလားတူ ပုစ္ဆာတစ်ပုဒ် ကိုယ်တိုင်ဖြေကြည့်ပါ: x² + 7x + 10 = 0။ အဖြေရရင် ပို့လိုက်နော်! 💪";
+    return "Next step 💪 → ကိုယ်ပိုင်ဖြေကြည့်ပါ: x² + 7x + 10 = 0\nHint: ပေါင်းရင် 7၊ မြှောက်ရင် 10 ဖြစ်မယ့် ဂဏန်းနှစ်လုံးကို ရှာကြည့်ပါ — ခုနကလုပ်ခဲ့တဲ့ နည်းလမ်းအတိုင်းပဲ။ အဖြေရရင် ဘယ်လိုရလဲ ရှင်းပြခိုင်းလိုက်မယ်နော်!";
   if (t.includes("photo") || t.includes("scan") || t.includes("📷"))
-    return "ဓာတ်ပုံရပါပြီ! 📷 ပုစ္ဆာကို ကြည့်ပြီး အဆင့်ဆင့် ရှင်းပြပေးမယ်နော် — အရင်ဆုံး ဘယ်အပုဒ်က အခက်ဆုံးလဲ ပြောပြပါ။";
+    return "ဓာတ်ပုံရပါပြီ! 📷 ပုစ္ဆာအပြည့်အစုံကို ဖတ်ပြီးပါပြီ။ တစ်ဆင့်ချင်းစီ အတူတူဖြေကြရအောင် — မစခင်၊ ဒီပုစ္ဆာထဲမှာ ဘယ်အပိုင်းက အခက်ဆုံးလို့ ခံစားရလဲ ပြောပြပါ (ဥပမာ − factor ရှာတာလား၊ symbol တွေ ရှုပ်နေတာလား)?";
   if (t.includes("translate"))
-    return "Translate mode! 🌐 English ↔ မြန်မာ — ဘာသာပြန်ချင်တဲ့ စာကြောင်းကို ပို့လိုက်ပါ။";
+    return "Translate mode ဖွင့်ပြီးပါပြီ 🌐 English ↔ မြန်မာ — ဘာသာပြန်ချင်တဲ့ စာကြောင်း (ဥပမာ − textbook ထဲက definition တစ်ခု) ကို ပို့လိုက်ပါ၊ context ပါ ရှင်းပြပေးမယ်။";
   if (t.includes("🎤"))
-    return "Voice note ရပါပြီ! 🎧 နားထောင်ပြီး ပြန်ဖြေပေးမယ်နော် — ခဏစောင့်ပါ။";
-  return `Got it! Let's solve together — "${text}" ကို အတူတူကြည့်ကြမယ်။ အသေးစိတ်လေး ထပ်ပို့ပေးပါနော်!`;
+    return "Voice note ကို နားထောင်ပြီးပါပြီ 🎧 မေးခွန်းကို ရှင်းပြီပေါ့ — ဒီအတိုင်း အဆင့်ဆင့် ဖြေပေးမယ်နော်၊ ခဏလေးစောင့်ပါ။";
+  return `Got it! Let's solve together — "${text}" ကို အတူတူ ခွဲခြမ်းစိတ်ဖြာကြည့်ကြမယ်။ ဘယ်နေရာက စလုပ်ချင်လဲ၊ ဒါမှမဟုတ် ပိုသေချာတဲ့ အသေးစိတ်လေး ထပ်ပို့ပေးနိုင်ပါတယ်!`;
 }
 
 function nowTime(): string {
@@ -134,9 +135,11 @@ function nowTime(): string {
 }
 
 function TypingDots() {
-  const [values] = useState(
-    () => [new Animated.Value(0), new Animated.Value(0), new Animated.Value(0)],
-  );
+  const [values] = useState(() => [
+    new Animated.Value(0),
+    new Animated.Value(0),
+    new Animated.Value(0),
+  ]);
 
   useEffect(() => {
     const loops = values.map((v, i) =>
@@ -350,20 +353,6 @@ export default function TeacherChat() {
 
             <Pressable
               accessibilityRole="button"
-              accessibilityLabel="Voice call"
-              className="w-10 h-10 rounded-full bg-muted items-center justify-center active:opacity-70"
-            >
-              <ThemedIcon as={Phone} className="text-foreground" size={17} />
-            </Pressable>
-            <Pressable
-              accessibilityRole="button"
-              accessibilityLabel="Video call"
-              className="w-10 h-10 rounded-full bg-muted items-center justify-center active:opacity-70"
-            >
-              <ThemedIcon as={Video} className="text-foreground" size={18} />
-            </Pressable>
-            <Pressable
-              accessibilityRole="button"
               accessibilityLabel="More options"
               className="w-9 h-10 rounded-full items-center justify-center active:opacity-70"
             >
@@ -536,7 +525,9 @@ export default function TeacherChat() {
                   onPress={() => setPlaying((p) => !p)}
                   accessibilityRole="button"
                   accessibilityLabel={
-                    playing ? "Pause voice explanation" : "Play voice explanation"
+                    playing
+                      ? "Pause voice explanation"
+                      : "Play voice explanation"
                   }
                   accessibilityHint="Plays a 72 second voice note"
                   className="mt-2 w-full bg-muted rounded-xl px-3 py-2.5 flex-row items-center gap-2.5 active:opacity-80"
@@ -556,7 +547,8 @@ export default function TeacherChat() {
                       />
                     </View>
                     <Text className="mt-1 font-body font-bold text-[11px] text-muted-foreground">
-                      {playing ? "Playing…" : "Voice explanation"} · {voiceLabel}
+                      {playing ? "Playing…" : "Voice explanation"} ·{" "}
+                      {voiceLabel}
                     </Text>
                   </View>
                 </Pressable>
@@ -598,7 +590,9 @@ export default function TeacherChat() {
                             ? "bg-primary shadow-sm"
                             : "bg-card border border-border shadow-sm"
                         }`}
-                        style={chip.primary ? { elevation: 2 } : { elevation: 1 }}
+                        style={
+                          chip.primary ? { elevation: 2 } : { elevation: 1 }
+                        }
                       >
                         <Text className="font-body font-bold text-xs">
                           {chip.emoji ? `${chip.emoji} ` : ""}
@@ -685,7 +679,9 @@ export default function TeacherChat() {
                   <ThemedIcon
                     as={Bookmark}
                     size={14}
-                    className={saved ? "text-primary-foreground" : "text-primary"}
+                    className={
+                      saved ? "text-primary-foreground" : "text-primary"
+                    }
                   />
                   <Text
                     className={`font-body font-bold text-xs ${saved ? "text-primary-foreground" : "text-primary"}`}
@@ -789,17 +785,29 @@ export default function TeacherChat() {
             className={`flex-row items-end gap-1 rounded-3xl border bg-background px-1.5 py-1.5 ${
               inputFocused ? "border-primary" : "border-border"
             }`}
-            style={{ elevation: 2, shadowColor: "#000", shadowOpacity: 0.06, shadowRadius: 10, shadowOffset: { width: 0, height: 2 } }}
+            style={{
+              elevation: 2,
+              shadowColor: "#000",
+              shadowOpacity: 0.06,
+              shadowRadius: 10,
+              shadowOffset: { width: 0, height: 2 },
+            }}
           >
             <Pressable
               onPress={() => setShowAttach((s) => !s)}
               accessibilityRole="button"
-              accessibilityLabel={showAttach ? "Close attachments" : "Open attachments"}
+              accessibilityLabel={
+                showAttach ? "Close attachments" : "Open attachments"
+              }
               className={`w-10 h-10 rounded-full items-center justify-center active:opacity-70 ${showAttach ? "bg-primary" : "bg-transparent"}`}
             >
               <ThemedIcon
                 as={showAttach ? X : Plus}
-                className={showAttach ? "text-primary-foreground" : "text-muted-foreground"}
+                className={
+                  showAttach
+                    ? "text-primary-foreground"
+                    : "text-muted-foreground"
+                }
                 size={20}
               />
             </Pressable>
@@ -828,11 +836,7 @@ export default function TeacherChat() {
                 accessibilityLabel="Send voice question"
                 className="w-10 h-10 rounded-full bg-muted items-center justify-center active:opacity-70"
               >
-                <ThemedIcon
-                  as={Mic}
-                  className="text-foreground"
-                  size={18}
-                />
+                <ThemedIcon as={Mic} className="text-foreground" size={18} />
               </Pressable>
             ) : (
               <Pressable
@@ -845,7 +849,11 @@ export default function TeacherChat() {
               >
                 <ThemedIcon
                   as={SendHorizontal}
-                  className={sending ? "text-muted-foreground" : "text-primary-foreground"}
+                  className={
+                    sending
+                      ? "text-muted-foreground"
+                      : "text-primary-foreground"
+                  }
                   size={18}
                 />
               </Pressable>
