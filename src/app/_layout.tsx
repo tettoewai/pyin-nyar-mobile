@@ -1,6 +1,7 @@
 import "@/global.css";
 
 import { GluestackUIProvider } from "@/components/ui/gluestack-ui-provider";
+import { queryClient, useSession } from "@/hooks/auth";
 import {
   Nunito_400Regular,
   Nunito_600SemiBold,
@@ -8,11 +9,13 @@ import {
   Nunito_800ExtraBold,
   useFonts,
 } from "@expo-google-fonts/nunito";
+import { QueryClientProvider } from "@tanstack/react-query";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
-import { StatusBar, useColorScheme } from "react-native";
+import { useColorScheme } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import { StatusBar } from "expo-status-bar";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -26,23 +29,40 @@ export default function RootLayout() {
 
   const colorScheme = useColorScheme() ?? "light";
 
-  useEffect(() => {
-    if (fontsLoaded) {
-      SplashScreen.hideAsync();
-    }
-  }, [fontsLoaded]);
-
   if (!fontsLoaded) return null;
+
   return (
-    <GluestackUIProvider mode="system">
-      <SafeAreaProvider>
-        <StatusBar
-          barStyle={colorScheme === "dark" ? "light-content" : "dark-content"}
-          backgroundColor="transparent"
-          translucent
-        />
-        <Stack screenOptions={{ headerShown: false }} />
-      </SafeAreaProvider>
-    </GluestackUIProvider>
+    <QueryClientProvider client={queryClient}>
+      <GluestackUIProvider mode="system">
+        <SafeAreaProvider>
+          <StatusBar
+            style={colorScheme === "dark" ? "light" : "dark"}
+          />
+          <Nav />
+        </SafeAreaProvider>
+      </GluestackUIProvider>
+    </QueryClientProvider>
+  );
+}
+
+function Nav() {
+  const { data: user, isLoading } = useSession();
+
+  useEffect(() => {
+    if (!isLoading) SplashScreen.hideAsync();
+  }, [isLoading]);
+
+  if (isLoading) return null;
+
+  return (
+    <Stack screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="index" />
+      <Stack.Protected guard={!user}>
+        <Stack.Screen name="login" />
+      </Stack.Protected>
+      <Stack.Protected guard={!!user}>
+        <Stack.Screen name="private" />
+      </Stack.Protected>
+    </Stack>
   );
 }

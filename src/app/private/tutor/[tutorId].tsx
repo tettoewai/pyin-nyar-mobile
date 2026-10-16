@@ -1,7 +1,7 @@
 import { Box } from "@/components/ui/box";
 import { ThemedIcon } from "@/components/ui/icon";
 import { Text } from "@/components/ui/text";
-import { Link, useLocalSearchParams } from "expo-router";
+import { Link, router, useLocalSearchParams } from "expo-router";
 import {
   ArrowRight,
   BadgeCheck,
@@ -10,10 +10,10 @@ import {
   CheckCheck,
   ChevronLeft,
   CircleHelp,
-  EllipsisVertical,
   Image as ImageIcon,
   Languages,
   Mic,
+  MoreVertical,
   Pause,
   PenLine,
   Play,
@@ -299,21 +299,23 @@ export default function TeacherChat() {
           }}
         >
           <View className="flex-row items-center gap-2">
-            <Link href="/tutor" asChild>
-              <Pressable
-                accessibilityRole="button"
-                accessibilityLabel="Back to tutors"
-                className="w-10 h-10 rounded-full bg-muted items-center justify-center active:opacity-70"
-              >
-                <ThemedIcon
-                  as={ChevronLeft}
-                  className="text-foreground"
-                  size={21}
-                />
-              </Pressable>
-            </Link>
+            <Pressable
+              accessibilityRole="button"
+              accessibilityLabel="Back to tutors"
+              className="w-10 h-10 rounded-full bg-muted items-center justify-center active:opacity-70"
+              onPress={() => router.back()}
+            >
+              <ThemedIcon
+                as={ChevronLeft}
+                className="text-foreground"
+                size={21}
+              />
+            </Pressable>
 
-            <View className="relative">
+            <Pressable
+              onPress={() => router.push(`/teacher/${tutorId}`)}
+              className="relative"
+            >
               <Image
                 source={{ uri: AVATAR_URI }}
                 className="w-11 h-11 rounded-full border border-border"
@@ -323,16 +325,17 @@ export default function TeacherChat() {
                 className="absolute -right-0.5 -bottom-0.5 w-3.5 h-3.5 rounded-full bg-primary border-2 border-card"
                 accessibilityLabel="Online"
               />
-            </View>
+            </Pressable>
 
             <View className="flex-1 min-w-0">
               <View className="flex-row items-center gap-1.5">
-                <Text
+                <Link
+                  href={`/teacher/${tutorId}`}
                   numberOfLines={1}
                   className="font-heading text-[15px] text-foreground"
                 >
                   {meta.name}
-                </Text>
+                </Link>
                 <ThemedIcon
                   as={BadgeCheck}
                   className="text-primary"
@@ -357,7 +360,7 @@ export default function TeacherChat() {
               className="w-9 h-10 rounded-full items-center justify-center active:opacity-70"
             >
               <ThemedIcon
-                as={EllipsisVertical}
+                as={MoreVertical}
                 className="text-muted-foreground"
                 size={19}
               />
@@ -368,6 +371,7 @@ export default function TeacherChat() {
         {/* ── Thread ─────────────────────────────────────────── */}
         <ScrollView
           ref={scrollRef}
+          scrollsToTop={false}
           className="flex-1"
           contentContainerClassName="px-4 pt-4 pb-2 flex-col gap-4"
           showsVerticalScrollIndicator={false}

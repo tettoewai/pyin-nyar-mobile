@@ -1,4 +1,4 @@
-import Conversation from "@/components/Conversation";
+import Conversation from "@/components/conversation";
 import { Box } from "@/components/ui/box";
 import { ThemedIcon } from "@/components/ui/icon";
 import { Input, InputField, InputIcon, InputSlot } from "@/components/ui/input";
@@ -28,7 +28,7 @@ type Teacher = {
   pinned?: boolean;
 };
 
-const TEACHERS: Teacher[] = [
+export const TEACHERS: Teacher[] = [
   {
     id: "saya_maung",
     name: "Saya Maung",

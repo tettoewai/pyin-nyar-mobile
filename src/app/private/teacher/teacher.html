@@ -1,0 +1,3380 @@
+<div
+  class="export-wrapper"
+  style="
+    width: 375px;
+    min-height: 812px;
+    position: relative;
+    font-family: var(--font-family-body);
+    background-color: var(--background);
+  "
+>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@100;200;300;400;500;600;700;800;900&family=Geist:wght@100;200;300;400;500;600;700;800;900&family=IBM+Plex+Mono:wght@100;200;300;400;500;600;700&family=IBM+Plex+Sans:wght@100;200;300;400;500;600;700&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:wght@200;300;400;500;600;700;800;900&family=PT+Serif:wght@400;700&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&family=Shantell+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <html>
+    <head>
+      <style>
+        /*! tailwindcss v4.3.3 | MIT License | https://tailwindcss.com */
+        @layer properties;
+        @layer theme, base, components, utilities;
+        @layer theme {
+          :root,
+          :root {
+            --font-sans:
+              -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+              "Helvetica Neue", "Noto Sans", Arial, sans-serif,
+              "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+              "Noto Color Emoji";
+            --font-mono:
+              ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+              "Liberation Mono", "Courier New", monospace;
+            --spacing: 0.25rem;
+            --text-xs: 12px;
+            --text-xs--line-height: calc(1 / 0.75);
+            --text-sm: 14px;
+            --text-sm--line-height: calc(1.25 / 0.875);
+            --text-base: 16px;
+            --text-base--line-height: calc(1.5 / 1);
+            --text-lg: 18px;
+            --text-lg--line-height: calc(1.75 / 1.125);
+            --text-xl: 20px;
+            --text-xl--line-height: calc(1.75 / 1.25);
+            --text-2xl: 24px;
+            --text-2xl--line-height: calc(2 / 1.5);
+            --text-3xl: 30px;
+            --text-3xl--line-height: calc(2.25 / 1.875);
+            --text-4xl: 36px;
+            --text-4xl--line-height: calc(2.5 / 2.25);
+            --font-weight-medium: 500;
+            --font-weight-bold: 700;
+            --font-weight-extrabold: 800;
+            --tracking-wide: 0.025em;
+            --tracking-widest: 0.1em;
+            --leading-tight: 1.25;
+            --leading-snug: 1.375;
+            --leading-relaxed: 1.625;
+            --leading-loose: 2;
+            --radius-sm: 10px;
+            --radius-md: 16px;
+            --radius-lg: 20px;
+            --radius-xl: 28px;
+            --default-font-family: var(--font-sans);
+            --default-mono-font-family: var(--font-mono);
+            --color-background: #fff7e9;
+            --color-foreground: #23241f;
+            --color-card: #ffffff;
+            --color-border: #f0dfc0;
+            --color-input: #ffffff;
+            --color-primary: #0e7a5a;
+            --color-primary-foreground: #ffffff;
+            --color-primary-deep: #0a4a3a;
+            --color-secondary: #e9f5ee;
+            --color-secondary-foreground: #0e7a5a;
+            --color-accent: #ffb020;
+            --color-accent-foreground: #23241f;
+            --color-accent-soft: #fff0d1;
+            --color-muted: #ede6d6;
+            --color-muted-foreground: #8a8474;
+            --color-streak: #ff6b35;
+            --color-gem: #3aa9e8;
+            --color-lilac: #ede7ff;
+            --color-peach: #ffe4d6;
+            --font-body: Nunito;
+            --font-headings: Nunito;
+          }
+        }
+        @layer base {
+          *,
+          ::after,
+          ::before,
+          ::backdrop,
+          ::file-selector-button {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            border: 0 solid;
+          }
+          html,
+          :root {
+            line-height: 1.5;
+            -webkit-text-size-adjust: 100%;
+            tab-size: 4;
+            font-family: var(
+              --default-font-family,
+              -apple-system,
+              BlinkMacSystemFont,
+              "Segoe UI",
+              Roboto,
+              "Helvetica Neue",
+              "Noto Sans",
+              Arial,
+              sans-serif,
+              "Apple Color Emoji",
+              "Segoe UI Emoji",
+              "Segoe UI Symbol",
+              "Noto Color Emoji"
+            );
+            font-feature-settings: var(--default-font-feature-settings, normal);
+            font-variation-settings: var(
+              --default-font-variation-settings,
+              normal
+            );
+            -webkit-tap-highlight-color: transparent;
+          }
+          hr {
+            height: 0;
+            color: inherit;
+            border-top-width: 1px;
+          }
+          abbr:where([title]) {
+            -webkit-text-decoration: underline dotted;
+            text-decoration: underline dotted;
+          }
+          h1,
+          h2,
+          h3,
+          h4,
+          h5,
+          h6 {
+            font-size: inherit;
+            font-weight: inherit;
+          }
+          a {
+            color: inherit;
+            -webkit-text-decoration: inherit;
+            text-decoration: inherit;
+          }
+          b,
+          strong {
+            font-weight: bolder;
+          }
+          code,
+          kbd,
+          samp,
+          pre {
+            font-family: var(
+              --default-mono-font-family,
+              ui-monospace,
+              SFMono-Regular,
+              Menlo,
+              Monaco,
+              Consolas,
+              "Liberation Mono",
+              "Courier New",
+              monospace
+            );
+            font-feature-settings: var(
+              --default-mono-font-feature-settings,
+              normal
+            );
+            font-variation-settings: var(
+              --default-mono-font-variation-settings,
+              normal
+            );
+            font-size: 1em;
+          }
+          small {
+            font-size: 80%;
+          }
+          sub,
+          sup {
+            font-size: 75%;
+            line-height: 0;
+            position: relative;
+            vertical-align: baseline;
+          }
+          sub {
+            bottom: -0.25em;
+          }
+          sup {
+            top: -0.5em;
+          }
+          table {
+            text-indent: 0;
+            border-color: inherit;
+            border-collapse: collapse;
+          }
+          :-moz-focusring:where(:not(iframe)) {
+            outline: auto;
+          }
+          progress {
+            vertical-align: baseline;
+          }
+          summary {
+            display: list-item;
+          }
+          ol,
+          ul,
+          menu {
+            list-style: none;
+          }
+          img,
+          svg,
+          video,
+          canvas,
+          audio,
+          iframe,
+          embed,
+          object {
+            display: block;
+            vertical-align: middle;
+          }
+          img,
+          video {
+            max-width: 100%;
+            height: auto;
+          }
+          button,
+          input,
+          select,
+          optgroup,
+          textarea,
+          ::file-selector-button {
+            font: inherit;
+            font-feature-settings: inherit;
+            font-variation-settings: inherit;
+            letter-spacing: inherit;
+            color: inherit;
+            border-radius: 0;
+            background-color: transparent;
+            opacity: 1;
+          }
+          :where(select:is([multiple], [size])) optgroup {
+            font-weight: bolder;
+          }
+          :where(select:is([multiple], [size])) optgroup option {
+            padding-inline-start: 20px;
+          }
+          ::file-selector-button {
+            margin-inline-end: 4px;
+          }
+          ::placeholder {
+            opacity: 1;
+          }
+          @supports (not (-webkit-appearance: -apple-pay-button)) or
+            (contain-intrinsic-size: 1px) {
+            ::placeholder {
+              color: currentcolor;
+              @supports (color: color-mix(in lab, red, red)) {
+                color: color-mix(in oklab, currentcolor 50%, transparent);
+              }
+            }
+          }
+          textarea {
+            resize: vertical;
+          }
+          ::-webkit-search-decoration {
+            -webkit-appearance: none;
+          }
+          ::-webkit-date-and-time-value {
+            min-height: 1lh;
+            text-align: inherit;
+          }
+          ::-webkit-datetime-edit {
+            display: inline-flex;
+          }
+          ::-webkit-datetime-edit-fields-wrapper {
+            padding: 0;
+          }
+          ::-webkit-datetime-edit,
+          ::-webkit-datetime-edit-year-field,
+          ::-webkit-datetime-edit-month-field,
+          ::-webkit-datetime-edit-day-field,
+          ::-webkit-datetime-edit-hour-field,
+          ::-webkit-datetime-edit-minute-field,
+          ::-webkit-datetime-edit-second-field,
+          ::-webkit-datetime-edit-millisecond-field,
+          ::-webkit-datetime-edit-meridiem-field {
+            padding-block: 0;
+          }
+          ::-webkit-calendar-picker-indicator {
+            line-height: 1;
+          }
+          :-moz-ui-invalid {
+            box-shadow: none;
+          }
+          button,
+          input:where([type="button"], [type="reset"], [type="submit"]),
+          ::file-selector-button {
+            appearance: button;
+          }
+          ::-webkit-inner-spin-button,
+          ::-webkit-outer-spin-button {
+            height: auto;
+          }
+          [hidden]:where(:not([hidden="until-found"])) {
+            display: none !important;
+          }
+        }
+        @layer utilities {
+          .absolute {
+            position: absolute;
+          }
+          .fixed {
+            position: fixed;
+          }
+          .relative {
+            position: relative;
+          }
+          .inset-0 {
+            inset: 0px;
+          }
+          .-top-10 {
+            top: calc(var(--spacing) * -10);
+          }
+          .top-0 {
+            top: 0px;
+          }
+          .top-3 {
+            top: calc(var(--spacing) * 3);
+          }
+          .top-5 {
+            top: calc(var(--spacing) * 5);
+          }
+          .-right-1 {
+            right: calc(var(--spacing) * -1);
+          }
+          .-right-8 {
+            right: calc(var(--spacing) * -8);
+          }
+          .right-0 {
+            right: 0px;
+          }
+          .right-1 {
+            right: var(--spacing);
+          }
+          .right-3 {
+            right: calc(var(--spacing) * 3);
+          }
+          .right-5 {
+            right: calc(var(--spacing) * 5);
+          }
+          .right-16 {
+            right: calc(var(--spacing) * 16);
+          }
+          .-bottom-1 {
+            bottom: calc(var(--spacing) * -1);
+          }
+          .-bottom-16 {
+            bottom: calc(var(--spacing) * -16);
+          }
+          .bottom-0 {
+            bottom: 0px;
+          }
+          .bottom-1 {
+            bottom: var(--spacing);
+          }
+          .left-0 {
+            left: 0px;
+          }
+          .left-5 {
+            left: calc(var(--spacing) * 5);
+          }
+          .mx-5 {
+            margin-inline: calc(var(--spacing) * 5);
+          }
+          .my-1 {
+            margin-block: var(--spacing);
+          }
+          .-mt-0 {
+            margin-top: 0px;
+          }
+          .-mt-6 {
+            margin-top: calc(var(--spacing) * -6);
+          }
+          .-mt-7 {
+            margin-top: calc(var(--spacing) * -7);
+          }
+          .-mt-10 {
+            margin-top: calc(var(--spacing) * -10);
+          }
+          .mt-0\.5 {
+            margin-top: calc(var(--spacing) * 0.5);
+          }
+          .mt-1 {
+            margin-top: var(--spacing);
+          }
+          .mt-1\.5 {
+            margin-top: calc(var(--spacing) * 1.5);
+          }
+          .mt-2 {
+            margin-top: calc(var(--spacing) * 2);
+          }
+          .mt-2\.5 {
+            margin-top: calc(var(--spacing) * 2.5);
+          }
+          .mt-3 {
+            margin-top: calc(var(--spacing) * 3);
+          }
+          .mt-4 {
+            margin-top: calc(var(--spacing) * 4);
+          }
+          .mt-5 {
+            margin-top: calc(var(--spacing) * 5);
+          }
+          .mb-1 {
+            margin-bottom: var(--spacing);
+          }
+          .mb-2 {
+            margin-bottom: calc(var(--spacing) * 2);
+          }
+          .mb-3 {
+            margin-bottom: calc(var(--spacing) * 3);
+          }
+          .mb-5 {
+            margin-bottom: calc(var(--spacing) * 5);
+          }
+          .ml-2 {
+            margin-left: calc(var(--spacing) * 2);
+          }
+          .flex {
+            display: flex;
+          }
+          .grid {
+            display: grid;
+          }
+          .table {
+            display: table;
+          }
+          .aspect-\[4\/3\] {
+            aspect-ratio: 4/3;
+          }
+          .h-1 {
+            height: var(--spacing);
+          }
+          .h-1\.5 {
+            height: calc(var(--spacing) * 1.5);
+          }
+          .h-2 {
+            height: calc(var(--spacing) * 2);
+          }
+          .h-2\.5 {
+            height: calc(var(--spacing) * 2.5);
+          }
+          .h-3 {
+            height: calc(var(--spacing) * 3);
+          }
+          .h-4 {
+            height: calc(var(--spacing) * 4);
+          }
+          .h-5 {
+            height: calc(var(--spacing) * 5);
+          }
+          .h-6 {
+            height: calc(var(--spacing) * 6);
+          }
+          .h-7 {
+            height: calc(var(--spacing) * 7);
+          }
+          .h-8 {
+            height: calc(var(--spacing) * 8);
+          }
+          .h-9 {
+            height: calc(var(--spacing) * 9);
+          }
+          .h-10 {
+            height: calc(var(--spacing) * 10);
+          }
+          .h-11 {
+            height: calc(var(--spacing) * 11);
+          }
+          .h-12 {
+            height: calc(var(--spacing) * 12);
+          }
+          .h-14 {
+            height: calc(var(--spacing) * 14);
+          }
+          .h-16 {
+            height: calc(var(--spacing) * 16);
+          }
+          .h-20 {
+            height: calc(var(--spacing) * 20);
+          }
+          .h-24 {
+            height: calc(var(--spacing) * 24);
+          }
+          .h-28 {
+            height: calc(var(--spacing) * 28);
+          }
+          .h-32 {
+            height: calc(var(--spacing) * 32);
+          }
+          .h-44 {
+            height: calc(var(--spacing) * 44);
+          }
+          .h-full {
+            height: 100%;
+          }
+          .h-px {
+            height: 1px;
+          }
+          .min-h-\[600px\] {
+            min-height: 600px;
+          }
+          .w-0\.5 {
+            width: calc(var(--spacing) * 0.5);
+          }
+          .w-1 {
+            width: var(--spacing);
+          }
+          .w-1\.5 {
+            width: calc(var(--spacing) * 1.5);
+          }
+          .w-2 {
+            width: calc(var(--spacing) * 2);
+          }
+          .w-4 {
+            width: calc(var(--spacing) * 4);
+          }
+          .w-5 {
+            width: calc(var(--spacing) * 5);
+          }
+          .w-6 {
+            width: calc(var(--spacing) * 6);
+          }
+          .w-7 {
+            width: calc(var(--spacing) * 7);
+          }
+          .w-8 {
+            width: calc(var(--spacing) * 8);
+          }
+          .w-9 {
+            width: calc(var(--spacing) * 9);
+          }
+          .w-10 {
+            width: calc(var(--spacing) * 10);
+          }
+          .w-11 {
+            width: calc(var(--spacing) * 11);
+          }
+          .w-12 {
+            width: calc(var(--spacing) * 12);
+          }
+          .w-14 {
+            width: calc(var(--spacing) * 14);
+          }
+          .w-16 {
+            width: calc(var(--spacing) * 16);
+          }
+          .w-20 {
+            width: calc(var(--spacing) * 20);
+          }
+          .w-24 {
+            width: calc(var(--spacing) * 24);
+          }
+          .w-28 {
+            width: calc(var(--spacing) * 28);
+          }
+          .w-32 {
+            width: calc(var(--spacing) * 32);
+          }
+          .w-44 {
+            width: calc(var(--spacing) * 44);
+          }
+          .w-\[35\%\] {
+            width: 35%;
+          }
+          .w-\[68\%\] {
+            width: 68%;
+          }
+          .w-\[78\%\] {
+            width: 78%;
+          }
+          .w-full {
+            width: 100%;
+          }
+          .w-px {
+            width: 1px;
+          }
+          .max-w-\[85\%\] {
+            max-width: 85%;
+          }
+          .min-w-0 {
+            min-width: 0px;
+          }
+          .min-w-5 {
+            min-width: calc(var(--spacing) * 5);
+          }
+          .flex-1 {
+            flex: 1;
+          }
+          .shrink-0 {
+            flex-shrink: 0;
+          }
+          .transform {
+            transform: var(--tw-rotate-x,) var(--tw-rotate-y,)
+              var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
+          }
+          .grid-cols-2 {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+          }
+          .grid-cols-3 {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+          }
+          .grid-cols-4 {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+          }
+          .grid-cols-6 {
+            grid-template-columns: repeat(6, minmax(0, 1fr));
+          }
+          .flex-col {
+            flex-direction: column;
+          }
+          .flex-wrap {
+            flex-wrap: wrap;
+          }
+          .items-center {
+            align-items: center;
+          }
+          .items-end {
+            align-items: flex-end;
+          }
+          .items-start {
+            align-items: flex-start;
+          }
+          .justify-between {
+            justify-content: space-between;
+          }
+          .justify-center {
+            justify-content: center;
+          }
+          .justify-end {
+            justify-content: flex-end;
+          }
+          .gap-0 {
+            gap: 0px;
+          }
+          .gap-0\.5 {
+            gap: calc(var(--spacing) * 0.5);
+          }
+          .gap-1 {
+            gap: var(--spacing);
+          }
+          .gap-1\.5 {
+            gap: calc(var(--spacing) * 1.5);
+          }
+          .gap-2 {
+            gap: calc(var(--spacing) * 2);
+          }
+          .gap-2\.5 {
+            gap: calc(var(--spacing) * 2.5);
+          }
+          .gap-3 {
+            gap: calc(var(--spacing) * 3);
+          }
+          .gap-4 {
+            gap: calc(var(--spacing) * 4);
+          }
+          :where(.-space-x-2 > :not(:last-child)) {
+            --tw-space-x-reverse: 0;
+            margin-inline-start: calc(
+              calc(var(--spacing) * -2) * var(--tw-space-x-reverse)
+            );
+            margin-inline-end: calc(
+              calc(var(--spacing) * -2) * calc(1 - var(--tw-space-x-reverse))
+            );
+          }
+          .self-center {
+            align-self: center;
+          }
+          .truncate {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+          .overflow-hidden {
+            overflow: hidden;
+          }
+          .rounded-full {
+            border-radius: calc(infinity * 1px);
+          }
+          .rounded-lg {
+            border-radius: var(--radius-lg);
+          }
+          .rounded-md {
+            border-radius: var(--radius-md);
+          }
+          .rounded-sm {
+            border-radius: var(--radius-sm);
+          }
+          .rounded-xl {
+            border-radius: var(--radius-xl);
+          }
+          .rounded-tl-sm {
+            border-top-left-radius: var(--radius-sm);
+          }
+          .rounded-br-sm {
+            border-bottom-right-radius: var(--radius-sm);
+          }
+          .border {
+            border-style: var(--tw-border-style);
+            border-width: 1px;
+          }
+          .border-2 {
+            border-style: var(--tw-border-style);
+            border-width: 2px;
+          }
+          .border-4 {
+            border-style: var(--tw-border-style);
+            border-width: 4px;
+          }
+          .border-t {
+            border-top-style: var(--tw-border-style);
+            border-top-width: 1px;
+          }
+          .border-b {
+            border-bottom-style: var(--tw-border-style);
+            border-bottom-width: 1px;
+          }
+          .border-dashed {
+            --tw-border-style: dashed;
+            border-style: dashed;
+          }
+          .border-accent {
+            border-color: var(--color-accent);
+          }
+          .border-accent-foreground {
+            border-color: var(--color-accent-foreground);
+          }
+          .border-background {
+            border-color: var(--color-background);
+          }
+          .border-border {
+            border-color: var(--color-border);
+          }
+          .border-card {
+            border-color: var(--color-card);
+          }
+          .border-primary {
+            border-color: var(--color-primary);
+          }
+          .border-primary-foreground\/20 {
+            border-color: color-mix(in srgb, #ffffff 20%, transparent);
+            @supports (color: color-mix(in lab, red, red)) {
+              border-color: color-mix(
+                in oklab,
+                var(--color-primary-foreground) 20%,
+                transparent
+              );
+            }
+          }
+          .bg-accent {
+            background-color: var(--color-accent);
+          }
+          .bg-accent-soft {
+            background-color: var(--color-accent-soft);
+          }
+          .bg-background {
+            background-color: var(--color-background);
+          }
+          .bg-border {
+            background-color: var(--color-border);
+          }
+          .bg-card {
+            background-color: var(--color-card);
+          }
+          .bg-foreground {
+            background-color: var(--color-foreground);
+          }
+          .bg-input {
+            background-color: var(--color-input);
+          }
+          .bg-lilac {
+            background-color: var(--color-lilac);
+          }
+          .bg-muted {
+            background-color: var(--color-muted);
+          }
+          .bg-muted-foreground {
+            background-color: var(--color-muted-foreground);
+          }
+          .bg-peach {
+            background-color: var(--color-peach);
+          }
+          .bg-primary {
+            background-color: var(--color-primary);
+          }
+          .bg-primary-deep {
+            background-color: var(--color-primary-deep);
+          }
+          .bg-primary-foreground {
+            background-color: var(--color-primary-foreground);
+          }
+          .bg-primary-foreground\/10 {
+            background-color: color-mix(in srgb, #ffffff 10%, transparent);
+            @supports (color: color-mix(in lab, red, red)) {
+              background-color: color-mix(
+                in oklab,
+                var(--color-primary-foreground) 10%,
+                transparent
+              );
+            }
+          }
+          .bg-primary-foreground\/15 {
+            background-color: color-mix(in srgb, #ffffff 15%, transparent);
+            @supports (color: color-mix(in lab, red, red)) {
+              background-color: color-mix(
+                in oklab,
+                var(--color-primary-foreground) 15%,
+                transparent
+              );
+            }
+          }
+          .bg-primary-foreground\/20 {
+            background-color: color-mix(in srgb, #ffffff 20%, transparent);
+            @supports (color: color-mix(in lab, red, red)) {
+              background-color: color-mix(
+                in oklab,
+                var(--color-primary-foreground) 20%,
+                transparent
+              );
+            }
+          }
+          .bg-secondary {
+            background-color: var(--color-secondary);
+          }
+          .bg-streak {
+            background-color: var(--color-streak);
+          }
+          .object-cover {
+            object-fit: cover;
+          }
+          .p-1 {
+            padding: var(--spacing);
+          }
+          .p-1\.5 {
+            padding: calc(var(--spacing) * 1.5);
+          }
+          .p-2\.5 {
+            padding: calc(var(--spacing) * 2.5);
+          }
+          .p-3 {
+            padding: calc(var(--spacing) * 3);
+          }
+          .p-3\.5 {
+            padding: calc(var(--spacing) * 3.5);
+          }
+          .p-4 {
+            padding: calc(var(--spacing) * 4);
+          }
+          .p-5 {
+            padding: calc(var(--spacing) * 5);
+          }
+          .px-0\.5 {
+            padding-inline: calc(var(--spacing) * 0.5);
+          }
+          .px-1 {
+            padding-inline: var(--spacing);
+          }
+          .px-1\.5 {
+            padding-inline: calc(var(--spacing) * 1.5);
+          }
+          .px-2 {
+            padding-inline: calc(var(--spacing) * 2);
+          }
+          .px-2\.5 {
+            padding-inline: calc(var(--spacing) * 2.5);
+          }
+          .px-3 {
+            padding-inline: calc(var(--spacing) * 3);
+          }
+          .px-3\.5 {
+            padding-inline: calc(var(--spacing) * 3.5);
+          }
+          .px-4 {
+            padding-inline: calc(var(--spacing) * 4);
+          }
+          .px-5 {
+            padding-inline: calc(var(--spacing) * 5);
+          }
+          .py-0\.5 {
+            padding-block: calc(var(--spacing) * 0.5);
+          }
+          .py-1 {
+            padding-block: var(--spacing);
+          }
+          .py-1\.5 {
+            padding-block: calc(var(--spacing) * 1.5);
+          }
+          .py-2 {
+            padding-block: calc(var(--spacing) * 2);
+          }
+          .py-2\.5 {
+            padding-block: calc(var(--spacing) * 2.5);
+          }
+          .py-3 {
+            padding-block: calc(var(--spacing) * 3);
+          }
+          .py-3\.5 {
+            padding-block: calc(var(--spacing) * 3.5);
+          }
+          .py-4 {
+            padding-block: calc(var(--spacing) * 4);
+          }
+          .py-5 {
+            padding-block: calc(var(--spacing) * 5);
+          }
+          .py-6 {
+            padding-block: calc(var(--spacing) * 6);
+          }
+          .pt-1 {
+            padding-top: var(--spacing);
+          }
+          .pt-2\.5 {
+            padding-top: calc(var(--spacing) * 2.5);
+          }
+          .pt-3 {
+            padding-top: calc(var(--spacing) * 3);
+          }
+          .pt-4 {
+            padding-top: calc(var(--spacing) * 4);
+          }
+          .pt-5 {
+            padding-top: calc(var(--spacing) * 5);
+          }
+          .pt-6 {
+            padding-top: calc(var(--spacing) * 6);
+          }
+          .pt-8 {
+            padding-top: calc(var(--spacing) * 8);
+          }
+          .pb-0 {
+            padding-bottom: 0px;
+          }
+          .pb-2 {
+            padding-bottom: calc(var(--spacing) * 2);
+          }
+          .pb-3 {
+            padding-bottom: calc(var(--spacing) * 3);
+          }
+          .pb-4 {
+            padding-bottom: calc(var(--spacing) * 4);
+          }
+          .pb-5 {
+            padding-bottom: calc(var(--spacing) * 5);
+          }
+          .pb-6 {
+            padding-bottom: calc(var(--spacing) * 6);
+          }
+          .pb-12 {
+            padding-bottom: calc(var(--spacing) * 12);
+          }
+          .pb-16 {
+            padding-bottom: calc(var(--spacing) * 16);
+          }
+          .text-center {
+            text-align: center;
+          }
+          .text-left {
+            text-align: left;
+          }
+          .text-right {
+            text-align: right;
+          }
+          .font-body {
+            font-family: var(--font-body);
+          }
+          .font-headings {
+            font-family: var(--font-headings);
+          }
+          .text-2xl {
+            font-size: var(--text-2xl);
+            line-height: var(--tw-leading, var(--text-2xl--line-height));
+          }
+          .text-3xl {
+            font-size: var(--text-3xl);
+            line-height: var(--tw-leading, var(--text-3xl--line-height));
+          }
+          .text-4xl {
+            font-size: var(--text-4xl);
+            line-height: var(--tw-leading, var(--text-4xl--line-height));
+          }
+          .text-base {
+            font-size: var(--text-base);
+            line-height: var(--tw-leading, var(--text-base--line-height));
+          }
+          .text-lg {
+            font-size: var(--text-lg);
+            line-height: var(--tw-leading, var(--text-lg--line-height));
+          }
+          .text-sm {
+            font-size: var(--text-sm);
+            line-height: var(--tw-leading, var(--text-sm--line-height));
+          }
+          .text-xl {
+            font-size: var(--text-xl);
+            line-height: var(--tw-leading, var(--text-xl--line-height));
+          }
+          .text-xs {
+            font-size: var(--text-xs);
+            line-height: var(--tw-leading, var(--text-xs--line-height));
+          }
+          .leading-loose {
+            --tw-leading: var(--leading-loose);
+            line-height: var(--leading-loose);
+          }
+          .leading-none {
+            --tw-leading: 1;
+            line-height: 1;
+          }
+          .leading-relaxed {
+            --tw-leading: var(--leading-relaxed);
+            line-height: var(--leading-relaxed);
+          }
+          .leading-snug {
+            --tw-leading: var(--leading-snug);
+            line-height: var(--leading-snug);
+          }
+          .leading-tight {
+            --tw-leading: var(--leading-tight);
+            line-height: var(--leading-tight);
+          }
+          .font-bold {
+            --tw-font-weight: var(--font-weight-bold);
+            font-weight: var(--font-weight-bold);
+          }
+          .font-extrabold {
+            --tw-font-weight: var(--font-weight-extrabold);
+            font-weight: var(--font-weight-extrabold);
+          }
+          .font-medium {
+            --tw-font-weight: var(--font-weight-medium);
+            font-weight: var(--font-weight-medium);
+          }
+          .tracking-wide {
+            --tw-tracking: var(--tracking-wide);
+            letter-spacing: var(--tracking-wide);
+          }
+          .tracking-widest {
+            --tw-tracking: var(--tracking-widest);
+            letter-spacing: var(--tracking-widest);
+          }
+          .text-accent {
+            color: var(--color-accent);
+          }
+          .text-accent-foreground {
+            color: var(--color-accent-foreground);
+          }
+          .text-background {
+            color: var(--color-background);
+          }
+          .text-foreground {
+            color: var(--color-foreground);
+          }
+          .text-gem {
+            color: var(--color-gem);
+          }
+          .text-muted-foreground {
+            color: var(--color-muted-foreground);
+          }
+          .text-primary {
+            color: var(--color-primary);
+          }
+          .text-primary-foreground {
+            color: var(--color-primary-foreground);
+          }
+          .text-secondary-foreground {
+            color: var(--color-secondary-foreground);
+          }
+          .text-streak {
+            color: var(--color-streak);
+          }
+          .opacity-10 {
+            opacity: 10%;
+          }
+          .opacity-20 {
+            opacity: 20%;
+          }
+          .opacity-40 {
+            opacity: 40%;
+          }
+          .opacity-60 {
+            opacity: 60%;
+          }
+          .opacity-70 {
+            opacity: 70%;
+          }
+          .opacity-80 {
+            opacity: 80%;
+          }
+          .shadow-sm {
+            --tw-shadow:
+              0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)),
+              0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+            box-shadow:
+              var(--tw-inset-shadow), var(--tw-inset-ring-shadow),
+              var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
+              var(--tw-shadow);
+          }
+        }
+        @property --tw-rotate-x {
+          syntax: "*";
+          inherits: false;
+        }
+        @property --tw-rotate-y {
+          syntax: "*";
+          inherits: false;
+        }
+        @property --tw-rotate-z {
+          syntax: "*";
+          inherits: false;
+        }
+        @property --tw-skew-x {
+          syntax: "*";
+          inherits: false;
+        }
+        @property --tw-skew-y {
+          syntax: "*";
+          inherits: false;
+        }
+        @property --tw-space-x-reverse {
+          syntax: "*";
+          inherits: false;
+          initial-value: 0;
+        }
+        @property --tw-border-style {
+          syntax: "*";
+          inherits: false;
+          initial-value: solid;
+        }
+        @property --tw-leading {
+          syntax: "*";
+          inherits: false;
+        }
+        @property --tw-font-weight {
+          syntax: "*";
+          inherits: false;
+        }
+        @property --tw-tracking {
+          syntax: "*";
+          inherits: false;
+        }
+        @property --tw-shadow {
+          syntax: "*";
+          inherits: false;
+          initial-value: 0 0 #0000;
+        }
+        @property --tw-shadow-color {
+          syntax: "*";
+          inherits: false;
+        }
+        @property --tw-shadow-alpha {
+          syntax: "<percentage>";
+          inherits: false;
+          initial-value: 100%;
+        }
+        @property --tw-inset-shadow {
+          syntax: "*";
+          inherits: false;
+          initial-value: 0 0 #0000;
+        }
+        @property --tw-inset-shadow-color {
+          syntax: "*";
+          inherits: false;
+        }
+        @property --tw-inset-shadow-alpha {
+          syntax: "<percentage>";
+          inherits: false;
+          initial-value: 100%;
+        }
+        @property --tw-ring-color {
+          syntax: "*";
+          inherits: false;
+        }
+        @property --tw-ring-shadow {
+          syntax: "*";
+          inherits: false;
+          initial-value: 0 0 #0000;
+        }
+        @property --tw-inset-ring-color {
+          syntax: "*";
+          inherits: false;
+        }
+        @property --tw-inset-ring-shadow {
+          syntax: "*";
+          inherits: false;
+          initial-value: 0 0 #0000;
+        }
+        @property --tw-ring-inset {
+          syntax: "*";
+          inherits: false;
+        }
+        @property --tw-ring-offset-width {
+          syntax: "<length>";
+          inherits: false;
+          initial-value: 0px;
+        }
+        @property --tw-ring-offset-color {
+          syntax: "*";
+          inherits: false;
+          initial-value: #fff;
+        }
+        @property --tw-ring-offset-shadow {
+          syntax: "*";
+          inherits: false;
+          initial-value: 0 0 #0000;
+        }
+        @layer properties {
+          @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+            ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+            *,
+            ::before,
+            ::after,
+            ::backdrop {
+              --tw-rotate-x: initial;
+              --tw-rotate-y: initial;
+              --tw-rotate-z: initial;
+              --tw-skew-x: initial;
+              --tw-skew-y: initial;
+              --tw-space-x-reverse: 0;
+              --tw-border-style: solid;
+              --tw-leading: initial;
+              --tw-font-weight: initial;
+              --tw-tracking: initial;
+              --tw-shadow: 0 0 #0000;
+              --tw-shadow-color: initial;
+              --tw-shadow-alpha: 100%;
+              --tw-inset-shadow: 0 0 #0000;
+              --tw-inset-shadow-color: initial;
+              --tw-inset-shadow-alpha: 100%;
+              --tw-ring-color: initial;
+              --tw-ring-shadow: 0 0 #0000;
+              --tw-inset-ring-color: initial;
+              --tw-inset-ring-shadow: 0 0 #0000;
+              --tw-ring-inset: initial;
+              --tw-ring-offset-width: 0px;
+              --tw-ring-offset-color: #fff;
+              --tw-ring-offset-shadow: 0 0 #0000;
+            }
+          }
+        }
+      </style>
+      <link
+        rel="preload"
+        as="image"
+        href="/api/flow-image/1%3A1%0Afriendly%20young%20Myanmar%20female%20teacher%20cartoon%20avatar%2C%20warm%20smile%2C%20thanaka%20on%20cheeks%2C%20green%20traditional%20blouse%2C%20flat%20illustration%2C%20cream%20background"
+      />
+      <link
+        rel="preload"
+        as="image"
+        href="https://storage.googleapis.com/banani-avatars/avatar/female/13-17/Southeast Asian/3"
+      />
+      <link
+        rel="preload"
+        as="image"
+        href="https://storage.googleapis.com/banani-avatars/avatar/male/13-17/Southeast Asian/2"
+      />
+      <link
+        rel="preload"
+        as="image"
+        href="https://storage.googleapis.com/banani-avatars/avatar/female/13-17/Southeast Asian/5"
+      />
+    </head>
+    <body>
+      <div
+        class="bg-background font-body"
+        data-component="@screens/TeacherProfile.jsx"
+      >
+        <div
+          class="bg-primary-deep relative"
+          data-component="@components/TeacherProfileHeader.jsx"
+        >
+          <div class="px-5 pt-6 flex items-center justify-between">
+            <button
+              class="w-9 h-9 rounded-full bg-primary-foreground/15 flex items-center justify-center"
+              type="button"
+              data-media-type="banani-button"
+            >
+              <span
+                class="text-primary-foreground"
+                style="
+                  display: inline-flex;
+                  align-items: center;
+                  justify-content: center;
+                  flex-shrink: 0;
+                  width: 20px;
+                  height: 20px;
+                "
+                data-icon="chevron-left"
+                data-component="@globalComponents/Icon.jsx"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20px"
+                  height="20px"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2.4"
+                    d="m15 18l-6-6l6-6"
+                  ></path></svg
+              ></span></button
+            ><button
+              class="w-9 h-9 rounded-full bg-primary-foreground/15 flex items-center justify-center"
+              type="button"
+              data-media-type="banani-button"
+            >
+              <span
+                class="text-primary-foreground"
+                style="
+                  display: inline-flex;
+                  align-items: center;
+                  justify-content: center;
+                  flex-shrink: 0;
+                  width: 18px;
+                  height: 18px;
+                "
+                data-icon="ellipsis-vertical"
+                data-component="@globalComponents/Icon.jsx"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18px"
+                  height="18px"
+                  viewBox="0 0 24 24"
+                >
+                  <g
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2.6666666666666665"
+                  >
+                    <circle cx="12" cy="12" r="1"></circle>
+                    <circle cx="12" cy="5" r="1"></circle>
+                    <circle cx="12" cy="19" r="1"></circle>
+                  </g></svg
+              ></span>
+            </button>
+          </div>
+          <div class="flex flex-col items-center pb-6 pt-3 px-5">
+            <div class="relative">
+              <img
+                data-query="friendly young Myanmar female teacher cartoon avatar, warm smile, thanaka on cheeks, green traditional blouse, flat illustration, cream background"
+                data-aspect-ratio="1:1"
+                style="aspect-ratio: 1/1; object-fit: cover"
+                src="https://storage.googleapis.com/banani-generated-images/generated-images/25d56666-863f-48f1-8118-82fb9938006f.jpg"
+                class="w-24 h-24 rounded-full object-cover border-4 border-accent"
+                data-component="@globalComponents/Image.jsx"
+              /><span
+                class="absolute bottom-1 right-1 w-5 h-5 rounded-full bg-primary border-2 border-accent"
+              ></span>
+            </div>
+            <p
+              class="font-headings font-extrabold text-2xl text-primary-foreground mt-3"
+            >
+              <span
+                data-file="/components/TeacherProfileHeader.jsx"
+                data-idx="0"
+                >Saya Maung</span
+              >
+            </p>
+            <p
+              class="font-body font-medium text-sm text-primary-foreground opacity-70 mt-0.5"
+            >
+              <span
+                data-file="/components/TeacherProfileHeader.jsx"
+                data-idx="1"
+                >AI Mathematics Teacher</span
+              >
+            </p>
+            <div class="flex items-center gap-2 mt-3 flex-wrap justify-center">
+              <span
+                class="bg-accent rounded-full px-3 py-1.5 font-body font-bold text-xs text-accent-foreground flex items-center gap-1.5"
+                ><span
+                  class=""
+                  style="
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-shrink: 0;
+                    width: 13px;
+                    height: 13px;
+                  "
+                  data-icon="calculator"
+                  data-component="@globalComponents/Icon.jsx"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="13px"
+                    height="13px"
+                    viewBox="0 0 24 24"
+                  >
+                    <g
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="3.6923076923076925"
+                    >
+                      <rect width="16" height="20" x="4" y="2" rx="2"></rect>
+                      <path
+                        d="M8 6h8m0 8v4m0-8h.01M12 10h.01M8 10h.01M12 14h.01M8 14h.01M12 18h.01M8 18h.01"
+                      ></path>
+                    </g></svg></span
+                ><span
+                  data-file="/components/TeacherProfileHeader.jsx"
+                  data-idx="2"
+                  >Maths</span
+                ></span
+              ><span
+                class="bg-primary-foreground/15 rounded-full px-3 py-1.5 font-body font-bold text-xs text-primary-foreground flex items-center gap-1.5"
+                ><span
+                  class=""
+                  style="
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-shrink: 0;
+                    width: 13px;
+                    height: 13px;
+                  "
+                  data-icon="badge-check"
+                  data-component="@globalComponents/Icon.jsx"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="13px"
+                    height="13px"
+                    viewBox="0 0 24 24"
+                  >
+                    <g
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="3.6923076923076925"
+                    >
+                      <path
+                        d="M3.85 8.62a4 4 0 0 1 4.78-4.77a4 4 0 0 1 6.74 0a4 4 0 0 1 4.78 4.78a4 4 0 0 1 0 6.74a4 4 0 0 1-4.77 4.78a4 4 0 0 1-6.75 0a4 4 0 0 1-4.78-4.77a4 4 0 0 1 0-6.76"
+                      ></path>
+                      <path d="m9 12l2 2l4-4"></path>
+                    </g></svg></span
+                ><span
+                  data-file="/components/TeacherProfileHeader.jsx"
+                  data-idx="3"
+                  >Verified Tutor</span
+                ></span
+              ><span
+                class="bg-primary-foreground/15 rounded-full px-3 py-1.5 font-body font-bold text-xs text-primary-foreground flex items-center gap-1.5"
+                ><span
+                  class=""
+                  style="
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-shrink: 0;
+                    width: 13px;
+                    height: 13px;
+                  "
+                  data-icon="star"
+                  data-component="@globalComponents/Icon.jsx"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="13px"
+                    height="13px"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="3.6923076923076925"
+                      d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"
+                    ></path></svg></span
+                ><span
+                  data-file="/components/TeacherProfileHeader.jsx"
+                  data-idx="4"
+                  >4.9 Rating</span
+                ></span
+              >
+            </div>
+            <div class="flex gap-3 mt-4 w-full">
+              <button
+                class="flex-1 bg-accent rounded-full py-3 font-headings font-extrabold text-sm text-accent-foreground flex items-center justify-center gap-2"
+                type="button"
+                data-media-type="banani-button"
+              >
+                <span
+                  class=""
+                  style="
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-shrink: 0;
+                    width: 17px;
+                    height: 17px;
+                  "
+                  data-icon="messages-square"
+                  data-component="@globalComponents/Icon.jsx"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="17px"
+                    height="17px"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2.823529411764706"
+                      d="M16 10a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 14.286V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2zm4-1a2 2 0 0 1 2 2v10.286a.71.71 0 0 1-1.212.502l-2.202-2.202A2 2 0 0 0 17.172 19H10a2 2 0 0 1-2-2v-1"
+                    ></path></svg></span
+                ><span
+                  data-file="/components/TeacherProfileHeader.jsx"
+                  data-idx="5"
+                  >Start Chat</span
+                ></button
+              ><button
+                class="w-12 h-12 rounded-full bg-primary-foreground/15 flex items-center justify-center shrink-0"
+                type="button"
+                data-media-type="banani-button"
+              >
+                <span
+                  class="text-primary-foreground"
+                  style="
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-shrink: 0;
+                    width: 18px;
+                    height: 18px;
+                  "
+                  data-icon="bookmark"
+                  data-component="@globalComponents/Icon.jsx"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18px"
+                    height="18px"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2.6666666666666665"
+                      d="M17 3a2 2 0 0 1 2 2v15a1 1 0 0 1-1.496.868l-4.512-2.578a2 2 0 0 0-1.984 0l-4.512 2.578A1 1 0 0 1 5 20V5a2 2 0 0 1 2-2z"
+                    ></path></svg
+                ></span></button
+              ><button
+                class="w-12 h-12 rounded-full bg-primary-foreground/15 flex items-center justify-center shrink-0"
+                type="button"
+                data-media-type="banani-button"
+              >
+                <span
+                  class="text-primary-foreground"
+                  style="
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-shrink: 0;
+                    width: 18px;
+                    height: 18px;
+                  "
+                  data-icon="share-2"
+                  data-component="@globalComponents/Icon.jsx"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18px"
+                    height="18px"
+                    viewBox="0 0 24 24"
+                  >
+                    <g
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2.6666666666666665"
+                    >
+                      <circle cx="18" cy="5" r="3"></circle>
+                      <circle cx="6" cy="12" r="3"></circle>
+                      <circle cx="18" cy="19" r="3"></circle>
+                      <path
+                        d="m8.59 13.51l6.83 3.98m-.01-10.98l-6.82 3.98"
+                      ></path>
+                    </g></svg
+                ></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="grid grid-cols-4 gap-2 px-5 mt-4"
+          data-component="@components/TeacherStatsStrip.jsx"
+        >
+          <div
+            class="bg-card border border-border rounded-xl p-3 flex flex-col items-center gap-1"
+          >
+            <span
+              class="text-primary"
+              style="
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+                width: 18px;
+                height: 18px;
+              "
+              data-icon="users"
+              data-component="@globalComponents/Icon.jsx"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18px"
+                height="18px"
+                viewBox="0 0 24 24"
+              >
+                <g
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2.6666666666666665"
+                >
+                  <path
+                    d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M16 3.128a4 4 0 0 1 0 7.744M22 21v-2a4 4 0 0 0-3-3.87"
+                  ></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                </g></svg
+            ></span>
+            <p class="font-headings font-extrabold text-base text-foreground">
+              2.4K
+            </p>
+            <p
+              class="font-body font-medium text-xs text-muted-foreground text-center"
+            >
+              <span data-file="/components/TeacherStatsStrip.jsx" data-idx="0"
+                >Students</span
+              >
+            </p>
+          </div>
+          <div
+            class="bg-card border border-border rounded-xl p-3 flex flex-col items-center gap-1"
+          >
+            <span
+              class="text-accent-foreground"
+              style="
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+                width: 18px;
+                height: 18px;
+              "
+              data-icon="book-open"
+              data-component="@globalComponents/Icon.jsx"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18px"
+                height="18px"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2.6666666666666665"
+                  d="M12 5v16m8.001-2A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2a5 5 0 0 1 4-2z"
+                ></path></svg
+            ></span>
+            <p class="font-headings font-extrabold text-base text-foreground">
+              340
+            </p>
+            <p
+              class="font-body font-medium text-xs text-muted-foreground text-center"
+            >
+              <span data-file="/components/TeacherStatsStrip.jsx" data-idx="1"
+                >Lessons</span
+              >
+            </p>
+          </div>
+          <div
+            class="bg-card border border-border rounded-xl p-3 flex flex-col items-center gap-1"
+          >
+            <span
+              class="text-accent"
+              style="
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+                width: 18px;
+                height: 18px;
+              "
+              data-icon="star"
+              data-component="@globalComponents/Icon.jsx"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18px"
+                height="18px"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2.6666666666666665"
+                  d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"
+                ></path></svg
+            ></span>
+            <p class="font-headings font-extrabold text-base text-foreground">
+              4.9
+            </p>
+            <p
+              class="font-body font-medium text-xs text-muted-foreground text-center"
+            >
+              <span data-file="/components/TeacherStatsStrip.jsx" data-idx="2"
+                >Rating</span
+              >
+            </p>
+          </div>
+          <div
+            class="bg-card border border-border rounded-xl p-3 flex flex-col items-center gap-1"
+          >
+            <span
+              class="text-gem"
+              style="
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+                width: 18px;
+                height: 18px;
+              "
+              data-icon="graduation-cap"
+              data-component="@globalComponents/Icon.jsx"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18px"
+                height="18px"
+                viewBox="0 0 24 24"
+              >
+                <g
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2.6666666666666665"
+                >
+                  <path
+                    d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0zM22 10v6"
+                  ></path>
+                  <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"></path>
+                </g></svg
+            ></span>
+            <p class="font-headings font-extrabold text-base text-foreground">
+              8yr
+            </p>
+            <p
+              class="font-body font-medium text-xs text-muted-foreground text-center"
+            >
+              <span data-file="/components/TeacherStatsStrip.jsx" data-idx="3"
+                >Exp.</span
+              >
+            </p>
+          </div>
+        </div>
+        <div
+          class="mx-5 mt-4 bg-card border border-border rounded-xl p-4"
+          data-component="@components/TeacherAboutCard.jsx"
+        >
+          <p class="font-headings font-extrabold text-sm text-foreground">
+            <span data-file="/components/TeacherAboutCard.jsx" data-idx="0"
+              >About • အကြောင်းအရာ</span
+            >
+          </p>
+          <p
+            class="font-body font-medium text-sm text-muted-foreground leading-relaxed mt-2"
+          >
+            <span data-file="/components/TeacherAboutCard.jsx" data-idx="1"
+              >Saya Maung specialises in Maths for Grade 9–12 Myanmar students.
+              Known for clear step-by-step explanations and bilingual breakdowns
+              that make hard topics feel easy.</span
+            >
+          </p>
+          <p class="font-body font-medium text-sm text-muted-foreground mt-1">
+            <span data-file="/components/TeacherAboutCard.jsx" data-idx="2"
+              >သင်္ချာဖြေဆိုနည်းများကို မြန်မာဘာသာနှင့် English
+              နှစ်မျိုးနှစ်ဘာသာ ရှင်းပြပေးသည်။</span
+            >
+          </p>
+          <div class="mt-3 pt-3 border-t border-border">
+            <p class="font-body font-bold text-xs text-muted-foreground mb-2">
+              <span data-file="/components/TeacherAboutCard.jsx" data-idx="3"
+                >SPECIALTIES</span
+              >
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="bg-secondary rounded-full px-3 py-1 font-body font-bold text-xs text-secondary-foreground"
+                ><span data-file="/components/TeacherAboutCard.jsx" data-idx="4"
+                  >Quadratic Eq.</span
+                ></span
+              ><span
+                class="bg-secondary rounded-full px-3 py-1 font-body font-bold text-xs text-secondary-foreground"
+                ><span data-file="/components/TeacherAboutCard.jsx" data-idx="5"
+                  >Trigonometry</span
+                ></span
+              ><span
+                class="bg-secondary rounded-full px-3 py-1 font-body font-bold text-xs text-secondary-foreground"
+                ><span data-file="/components/TeacherAboutCard.jsx" data-idx="6"
+                  >Calculus</span
+                ></span
+              ><span
+                class="bg-secondary rounded-full px-3 py-1 font-body font-bold text-xs text-secondary-foreground"
+                ><span data-file="/components/TeacherAboutCard.jsx" data-idx="7"
+                  >Statistics</span
+                ></span
+              ><span
+                class="bg-secondary rounded-full px-3 py-1 font-body font-bold text-xs text-secondary-foreground"
+                ><span data-file="/components/TeacherAboutCard.jsx" data-idx="8"
+                  >Algebra</span
+                ></span
+              ><span
+                class="bg-secondary rounded-full px-3 py-1 font-body font-bold text-xs text-secondary-foreground"
+                ><span data-file="/components/TeacherAboutCard.jsx" data-idx="9"
+                  >Matric Prep</span
+                ></span
+              >
+            </div>
+          </div>
+          <div class="mt-3 pt-3 border-t border-border flex flex-col gap-2">
+            <div class="flex items-center gap-2">
+              <span
+                class="text-accent shrink-0"
+                style="
+                  display: inline-flex;
+                  align-items: center;
+                  justify-content: center;
+                  flex-shrink: 0;
+                  width: 15px;
+                  height: 15px;
+                "
+                data-icon="zap"
+                data-component="@globalComponents/Icon.jsx"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="15px"
+                  height="15px"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="3.2"
+                    d="M15.914 4a1.5 1.5 0 0 0-2.474-1.561l-9 9A1.5 1.5 0 0 0 5.5 14h4.002a.5.5 0 0 1 .471.666L8.086 20a1.5 1.5 0 0 0 2.475 1.56l9-9A1.5 1.5 0 0 0 18.5 10h-3.997a.5.5 0 0 1-.472-.667z"
+                  ></path></svg></span
+              ><span class="font-body font-medium text-sm text-foreground"
+                ><span
+                  data-file="/components/TeacherAboutCard.jsx"
+                  data-idx="10"
+                  >Replies within 5 seconds</span
+                ></span
+              >
+            </div>
+            <div class="flex items-center gap-2">
+              <span
+                class="text-primary shrink-0"
+                style="
+                  display: inline-flex;
+                  align-items: center;
+                  justify-content: center;
+                  flex-shrink: 0;
+                  width: 15px;
+                  height: 15px;
+                "
+                data-icon="languages"
+                data-component="@globalComponents/Icon.jsx"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="15px"
+                  height="15px"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="3.2"
+                    d="m5 8l6 6m-7 0l6-6l2-3M2 5h12M7 2h1m14 20l-5-10l-5 10m2-4h6"
+                  ></path></svg></span
+              ><span class="font-body font-medium text-sm text-foreground"
+                ><span
+                  data-file="/components/TeacherAboutCard.jsx"
+                  data-idx="11"
+                  >Bilingual — မြန်မာ + English</span
+                ></span
+              >
+            </div>
+            <div class="flex items-center gap-2">
+              <span
+                class="text-muted-foreground shrink-0"
+                style="
+                  display: inline-flex;
+                  align-items: center;
+                  justify-content: center;
+                  flex-shrink: 0;
+                  width: 15px;
+                  height: 15px;
+                "
+                data-icon="camera"
+                data-component="@globalComponents/Icon.jsx"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="15px"
+                  height="15px"
+                  viewBox="0 0 24 24"
+                >
+                  <g
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="3.2"
+                  >
+                    <path
+                      d="M13.997 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.759-1.048l.489-.904A2 2 0 0 1 10.004 4z"
+                    ></path>
+                    <circle cx="12" cy="13" r="3"></circle>
+                  </g></svg></span
+              ><span class="font-body font-medium text-sm text-foreground"
+                ><span
+                  data-file="/components/TeacherAboutCard.jsx"
+                  data-idx="12"
+                  >Supports photo problem solving</span
+                ></span
+              >
+            </div>
+            <div class="flex items-center gap-2">
+              <span
+                class="text-muted-foreground shrink-0"
+                style="
+                  display: inline-flex;
+                  align-items: center;
+                  justify-content: center;
+                  flex-shrink: 0;
+                  width: 15px;
+                  height: 15px;
+                "
+                data-icon="mic"
+                data-component="@globalComponents/Icon.jsx"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="15px"
+                  height="15px"
+                  viewBox="0 0 24 24"
+                >
+                  <g
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="3.2"
+                  >
+                    <path d="M12 19v3m7-12v2a7 7 0 0 1-14 0v-2"></path>
+                    <rect width="6" height="13" x="9" y="2" rx="3"></rect>
+                  </g></svg></span
+              ><span class="font-body font-medium text-sm text-foreground"
+                ><span
+                  data-file="/components/TeacherAboutCard.jsx"
+                  data-idx="13"
+                  >Voice explanation available</span
+                ></span
+              >
+            </div>
+          </div>
+        </div>
+        <div
+          class="mx-5 mt-4 bg-card border border-border rounded-xl p-4"
+          data-component="@components/TeacherChapterList.jsx"
+        >
+          <div class="flex items-center justify-between mb-3">
+            <p class="font-headings font-extrabold text-sm text-foreground">
+              <span data-file="/components/TeacherChapterList.jsx" data-idx="0"
+                >Chapters Covered</span
+              >
+            </p>
+            <a
+              class="font-body font-bold text-xs text-primary"
+              data-media-type="banani-button"
+              ><span data-file="/components/TeacherChapterList.jsx" data-idx="1"
+                >See all 12</span
+              ></a
+            >
+          </div>
+          <div class="flex flex-col gap-2.5">
+            <button
+              class="flex items-center gap-3 text-left"
+              type="button"
+              data-media-type="banani-button"
+            >
+              <div
+                class="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center shrink-0"
+              >
+                <span
+                  class="text-secondary-foreground"
+                  style="
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-shrink: 0;
+                    width: 17px;
+                    height: 17px;
+                  "
+                  data-icon="hash"
+                  data-component="@globalComponents/Icon.jsx"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="17px"
+                    height="17px"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2.823529411764706"
+                      d="M4 9h16M4 15h16M10 3L8 21m8-18l-2 18"
+                    ></path></svg
+                ></span>
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="font-headings font-extrabold text-sm text-foreground">
+                  ကိန်းဂဏာန်း
+                </p>
+                <p class="font-body font-medium text-xs text-muted-foreground">
+                  Number Theory<!-- -->
+                  •
+                  <!-- -->12<!-- -->
+                  <span
+                    data-file="/components/TeacherChapterList.jsx"
+                    data-idx="2"
+                    >lessons</span
+                  >
+                </p>
+              </div>
+              <div class="flex items-center gap-1 shrink-0">
+                <span
+                  class="text-primary"
+                  style="
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-shrink: 0;
+                    width: 18px;
+                    height: 18px;
+                  "
+                  data-icon="play-circle"
+                  data-component="@globalComponents/Icon.jsx"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18px"
+                    height="18px"
+                    viewBox="0 0 24 24"
+                  >
+                    <g
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2.6666666666666665"
+                    >
+                      <path
+                        d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z"
+                      ></path>
+                      <circle cx="12" cy="12" r="10"></circle>
+                    </g></svg
+                ></span>
+              </div></button
+            ><button
+              class="flex items-center gap-3 text-left"
+              type="button"
+              data-media-type="banani-button"
+            >
+              <div
+                class="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center shrink-0"
+              >
+                <span
+                  class="text-secondary-foreground"
+                  style="
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-shrink: 0;
+                    width: 17px;
+                    height: 17px;
+                  "
+                  data-icon="function-square"
+                  data-component="@globalComponents/Icon.jsx"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="17px"
+                    height="17px"
+                    viewBox="0 0 24 24"
+                  >
+                    <g
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2.823529411764706"
+                    >
+                      <rect
+                        width="18"
+                        height="18"
+                        x="3"
+                        y="3"
+                        rx="2"
+                        ry="2"
+                      ></rect>
+                      <path
+                        d="M9 17c2 0 2.8-1 2.8-2.8V10c0-2 1-3.3 3.2-3m-6 4.2h5.7"
+                      ></path>
+                    </g></svg
+                ></span>
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="font-headings font-extrabold text-sm text-foreground">
+                  Quadratic Eq.
+                </p>
+                <p class="font-body font-medium text-xs text-muted-foreground">
+                  Quadratic Equations<!-- -->
+                  •
+                  <!-- -->18<!-- -->
+                  <span
+                    data-file="/components/TeacherChapterList.jsx"
+                    data-idx="2"
+                    >lessons</span
+                  >
+                </p>
+              </div>
+              <div class="flex items-center gap-1 shrink-0">
+                <span
+                  class="text-primary"
+                  style="
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-shrink: 0;
+                    width: 18px;
+                    height: 18px;
+                  "
+                  data-icon="play-circle"
+                  data-component="@globalComponents/Icon.jsx"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18px"
+                    height="18px"
+                    viewBox="0 0 24 24"
+                  >
+                    <g
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2.6666666666666665"
+                    >
+                      <path
+                        d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z"
+                      ></path>
+                      <circle cx="12" cy="12" r="10"></circle>
+                    </g></svg
+                ></span>
+              </div></button
+            ><button
+              class="flex items-center gap-3 text-left"
+              type="button"
+              data-media-type="banani-button"
+            >
+              <div
+                class="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center shrink-0"
+              >
+                <span
+                  class="text-secondary-foreground"
+                  style="
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-shrink: 0;
+                    width: 17px;
+                    height: 17px;
+                  "
+                  data-icon="triangle"
+                  data-component="@globalComponents/Icon.jsx"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="17px"
+                    height="17px"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2.823529411764706"
+                      d="M13.73 4a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"
+                    ></path></svg
+                ></span>
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="font-headings font-extrabold text-sm text-foreground">
+                  Trigonometry
+                </p>
+                <p class="font-body font-medium text-xs text-muted-foreground">
+                  Trigonometry<!-- -->
+                  •
+                  <!-- -->15<!-- -->
+                  <span
+                    data-file="/components/TeacherChapterList.jsx"
+                    data-idx="2"
+                    >lessons</span
+                  >
+                </p>
+              </div>
+              <div class="flex items-center gap-1 shrink-0">
+                <span
+                  class="text-primary"
+                  style="
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-shrink: 0;
+                    width: 18px;
+                    height: 18px;
+                  "
+                  data-icon="play-circle"
+                  data-component="@globalComponents/Icon.jsx"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18px"
+                    height="18px"
+                    viewBox="0 0 24 24"
+                  >
+                    <g
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2.6666666666666665"
+                    >
+                      <path
+                        d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z"
+                      ></path>
+                      <circle cx="12" cy="12" r="10"></circle>
+                    </g></svg
+                ></span>
+              </div></button
+            ><button
+              class="flex items-center gap-3 text-left"
+              type="button"
+              data-media-type="banani-button"
+            >
+              <div
+                class="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center shrink-0"
+              >
+                <span
+                  class="text-secondary-foreground"
+                  style="
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-shrink: 0;
+                    width: 17px;
+                    height: 17px;
+                  "
+                  data-icon="bar-chart-2"
+                  data-component="@globalComponents/Icon.jsx"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="17px"
+                    height="17px"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2.823529411764706"
+                      d="M5 21v-6m7 6V3m7 18V9"
+                    ></path></svg
+                ></span>
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="font-headings font-extrabold text-sm text-foreground">
+                  Statistics
+                </p>
+                <p class="font-body font-medium text-xs text-muted-foreground">
+                  Statistics &amp; Prob.<!-- -->
+                  •
+                  <!-- -->10<!-- -->
+                  <span
+                    data-file="/components/TeacherChapterList.jsx"
+                    data-idx="2"
+                    >lessons</span
+                  >
+                </p>
+              </div>
+              <div class="flex items-center gap-1 shrink-0">
+                <span
+                  class="text-primary"
+                  style="
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-shrink: 0;
+                    width: 18px;
+                    height: 18px;
+                  "
+                  data-icon="play-circle"
+                  data-component="@globalComponents/Icon.jsx"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18px"
+                    height="18px"
+                    viewBox="0 0 24 24"
+                  >
+                    <g
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2.6666666666666665"
+                    >
+                      <path
+                        d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z"
+                      ></path>
+                      <circle cx="12" cy="12" r="10"></circle>
+                    </g></svg
+                ></span>
+              </div>
+            </button>
+          </div>
+        </div>
+        <div class="mx-5 mt-4" data-component="@components/TeacherReviews.jsx">
+          <div class="flex items-center justify-between mb-3">
+            <p class="font-headings font-extrabold text-sm text-foreground">
+              <span data-file="/components/TeacherReviews.jsx" data-idx="0"
+                >Student Reviews • သုံးသပ်ချက်</span
+              >
+            </p>
+            <div class="flex items-center gap-1">
+              <span
+                class="text-accent"
+                style="
+                  display: inline-flex;
+                  align-items: center;
+                  justify-content: center;
+                  flex-shrink: 0;
+                  width: 14px;
+                  height: 14px;
+                "
+                data-icon="star"
+                data-component="@globalComponents/Icon.jsx"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14px"
+                  height="14px"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="3.4285714285714284"
+                    d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"
+                  ></path></svg></span
+              ><span
+                class="font-headings font-extrabold text-sm text-foreground"
+                >4.9</span
+              ><span class="font-body font-medium text-xs text-muted-foreground"
+                ><span data-file="/components/TeacherReviews.jsx" data-idx="1"
+                  >(128)</span
+                ></span
+              >
+            </div>
+          </div>
+          <div class="bg-card border border-border rounded-xl p-4 mb-3">
+            <div class="flex items-center gap-3">
+              <div class="flex flex-col items-center">
+                <p
+                  class="font-headings font-extrabold text-4xl text-foreground"
+                >
+                  4.9
+                </p>
+                <div class="flex gap-0.5 mt-1">
+                  <span
+                    class="text-accent"
+                    style="
+                      display: inline-flex;
+                      align-items: center;
+                      justify-content: center;
+                      flex-shrink: 0;
+                      width: 12px;
+                      height: 12px;
+                    "
+                    data-icon="star"
+                    data-component="@globalComponents/Icon.jsx"
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="12px"
+                      height="12px"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="4"
+                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"
+                      ></path></svg></span
+                  ><span
+                    class="text-accent"
+                    style="
+                      display: inline-flex;
+                      align-items: center;
+                      justify-content: center;
+                      flex-shrink: 0;
+                      width: 12px;
+                      height: 12px;
+                    "
+                    data-icon="star"
+                    data-component="@globalComponents/Icon.jsx"
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="12px"
+                      height="12px"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="4"
+                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"
+                      ></path></svg></span
+                  ><span
+                    class="text-accent"
+                    style="
+                      display: inline-flex;
+                      align-items: center;
+                      justify-content: center;
+                      flex-shrink: 0;
+                      width: 12px;
+                      height: 12px;
+                    "
+                    data-icon="star"
+                    data-component="@globalComponents/Icon.jsx"
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="12px"
+                      height="12px"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="4"
+                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"
+                      ></path></svg></span
+                  ><span
+                    class="text-accent"
+                    style="
+                      display: inline-flex;
+                      align-items: center;
+                      justify-content: center;
+                      flex-shrink: 0;
+                      width: 12px;
+                      height: 12px;
+                    "
+                    data-icon="star"
+                    data-component="@globalComponents/Icon.jsx"
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="12px"
+                      height="12px"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="4"
+                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"
+                      ></path></svg></span
+                  ><span
+                    class="text-accent"
+                    style="
+                      display: inline-flex;
+                      align-items: center;
+                      justify-content: center;
+                      flex-shrink: 0;
+                      width: 12px;
+                      height: 12px;
+                    "
+                    data-icon="star"
+                    data-component="@globalComponents/Icon.jsx"
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="12px"
+                      height="12px"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="4"
+                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"
+                      ></path></svg
+                  ></span>
+                </div>
+                <p
+                  class="font-body font-medium text-xs text-muted-foreground mt-1"
+                >
+                  <span data-file="/components/TeacherReviews.jsx" data-idx="2"
+                    >128 reviews</span
+                  >
+                </p>
+              </div>
+              <div class="flex-1 flex flex-col gap-1.5">
+                <div class="flex items-center gap-2">
+                  <span
+                    class="font-body font-bold text-xs text-muted-foreground w-2"
+                    >5</span
+                  >
+                  <div
+                    class="flex-1 h-1.5 rounded-full bg-muted overflow-hidden"
+                  >
+                    <div
+                      class="h-full rounded-full bg-accent"
+                      style="width: 90%"
+                    ></div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span
+                    class="font-body font-bold text-xs text-muted-foreground w-2"
+                    >4</span
+                  >
+                  <div
+                    class="flex-1 h-1.5 rounded-full bg-muted overflow-hidden"
+                  >
+                    <div
+                      class="h-full rounded-full bg-accent"
+                      style="width: 7%"
+                    ></div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span
+                    class="font-body font-bold text-xs text-muted-foreground w-2"
+                    >3</span
+                  >
+                  <div
+                    class="flex-1 h-1.5 rounded-full bg-muted overflow-hidden"
+                  >
+                    <div
+                      class="h-full rounded-full bg-accent"
+                      style="width: 2%"
+                    ></div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span
+                    class="font-body font-bold text-xs text-muted-foreground w-2"
+                    >2</span
+                  >
+                  <div
+                    class="flex-1 h-1.5 rounded-full bg-muted overflow-hidden"
+                  >
+                    <div
+                      class="h-full rounded-full bg-accent"
+                      style="width: 1%"
+                    ></div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span
+                    class="font-body font-bold text-xs text-muted-foreground w-2"
+                    >1</span
+                  >
+                  <div
+                    class="flex-1 h-1.5 rounded-full bg-muted overflow-hidden"
+                  >
+                    <div
+                      class="h-full rounded-full bg-accent"
+                      style="width: 0%"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col gap-2.5">
+            <div class="bg-card border border-border rounded-xl p-4">
+              <div class="flex items-center gap-2.5">
+                <img
+                  src="https://storage.googleapis.com/banani-avatars/avatar/female/13-17/Southeast Asian/3"
+                  class="w-9 h-9 rounded-full object-cover"
+                  data-component="@globalComponents/UserAvatar.jsx"
+                />
+                <div class="flex-1 min-w-0">
+                  <p
+                    class="font-headings font-extrabold text-sm text-foreground"
+                  >
+                    Ma Thiri
+                  </p>
+                  <p
+                    class="font-body font-medium text-xs text-muted-foreground"
+                  >
+                    Grade 10
+                  </p>
+                </div>
+                <div class="flex gap-0.5">
+                  <span
+                    class="text-accent"
+                    style="
+                      display: inline-flex;
+                      align-items: center;
+                      justify-content: center;
+                      flex-shrink: 0;
+                      width: 12px;
+                      height: 12px;
+                    "
+                    data-icon="star"
+                    data-component="@globalComponents/Icon.jsx"
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="12px"
+                      height="12px"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="4"
+                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"
+                      ></path></svg></span
+                  ><span
+                    class="text-accent"
+                    style="
+                      display: inline-flex;
+                      align-items: center;
+                      justify-content: center;
+                      flex-shrink: 0;
+                      width: 12px;
+                      height: 12px;
+                    "
+                    data-icon="star"
+                    data-component="@globalComponents/Icon.jsx"
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="12px"
+                      height="12px"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="4"
+                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"
+                      ></path></svg></span
+                  ><span
+                    class="text-accent"
+                    style="
+                      display: inline-flex;
+                      align-items: center;
+                      justify-content: center;
+                      flex-shrink: 0;
+                      width: 12px;
+                      height: 12px;
+                    "
+                    data-icon="star"
+                    data-component="@globalComponents/Icon.jsx"
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="12px"
+                      height="12px"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="4"
+                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"
+                      ></path></svg></span
+                  ><span
+                    class="text-accent"
+                    style="
+                      display: inline-flex;
+                      align-items: center;
+                      justify-content: center;
+                      flex-shrink: 0;
+                      width: 12px;
+                      height: 12px;
+                    "
+                    data-icon="star"
+                    data-component="@globalComponents/Icon.jsx"
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="12px"
+                      height="12px"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="4"
+                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"
+                      ></path></svg></span
+                  ><span
+                    class="text-accent"
+                    style="
+                      display: inline-flex;
+                      align-items: center;
+                      justify-content: center;
+                      flex-shrink: 0;
+                      width: 12px;
+                      height: 12px;
+                    "
+                    data-icon="star"
+                    data-component="@globalComponents/Icon.jsx"
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="12px"
+                      height="12px"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="4"
+                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"
+                      ></path></svg
+                  ></span>
+                </div>
+              </div>
+              <p
+                class="font-body font-medium text-sm text-foreground leading-relaxed mt-2.5"
+              >
+                Saya Maung explains so clearly! Quadratic ကို ၁၀ မိနစ်အတွင်း
+                နားလည်သွားတယ် 🎉
+              </p>
+            </div>
+            <div class="bg-card border border-border rounded-xl p-4">
+              <div class="flex items-center gap-2.5">
+                <img
+                  src="https://storage.googleapis.com/banani-avatars/avatar/male/13-17/Southeast Asian/2"
+                  class="w-9 h-9 rounded-full object-cover"
+                  data-component="@globalComponents/UserAvatar.jsx"
+                />
+                <div class="flex-1 min-w-0">
+                  <p
+                    class="font-headings font-extrabold text-sm text-foreground"
+                  >
+                    Ko Aung
+                  </p>
+                  <p
+                    class="font-body font-medium text-xs text-muted-foreground"
+                  >
+                    Grade 11
+                  </p>
+                </div>
+                <div class="flex gap-0.5">
+                  <span
+                    class="text-accent"
+                    style="
+                      display: inline-flex;
+                      align-items: center;
+                      justify-content: center;
+                      flex-shrink: 0;
+                      width: 12px;
+                      height: 12px;
+                    "
+                    data-icon="star"
+                    data-component="@globalComponents/Icon.jsx"
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="12px"
+                      height="12px"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="4"
+                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"
+                      ></path></svg></span
+                  ><span
+                    class="text-accent"
+                    style="
+                      display: inline-flex;
+                      align-items: center;
+                      justify-content: center;
+                      flex-shrink: 0;
+                      width: 12px;
+                      height: 12px;
+                    "
+                    data-icon="star"
+                    data-component="@globalComponents/Icon.jsx"
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="12px"
+                      height="12px"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="4"
+                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"
+                      ></path></svg></span
+                  ><span
+                    class="text-accent"
+                    style="
+                      display: inline-flex;
+                      align-items: center;
+                      justify-content: center;
+                      flex-shrink: 0;
+                      width: 12px;
+                      height: 12px;
+                    "
+                    data-icon="star"
+                    data-component="@globalComponents/Icon.jsx"
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="12px"
+                      height="12px"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="4"
+                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"
+                      ></path></svg></span
+                  ><span
+                    class="text-accent"
+                    style="
+                      display: inline-flex;
+                      align-items: center;
+                      justify-content: center;
+                      flex-shrink: 0;
+                      width: 12px;
+                      height: 12px;
+                    "
+                    data-icon="star"
+                    data-component="@globalComponents/Icon.jsx"
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="12px"
+                      height="12px"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="4"
+                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"
+                      ></path></svg></span
+                  ><span
+                    class="text-accent"
+                    style="
+                      display: inline-flex;
+                      align-items: center;
+                      justify-content: center;
+                      flex-shrink: 0;
+                      width: 12px;
+                      height: 12px;
+                    "
+                    data-icon="star"
+                    data-component="@globalComponents/Icon.jsx"
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="12px"
+                      height="12px"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="4"
+                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"
+                      ></path></svg
+                  ></span>
+                </div>
+              </div>
+              <p
+                class="font-body font-medium text-sm text-foreground leading-relaxed mt-2.5"
+              >
+                Bilingual explanations are the best. မြန်မာနဲ့ English
+                တစ်ပြိုင်နက် ရှင်းပြတာ အရမ်းကောင်း
+              </p>
+            </div>
+            <div class="bg-card border border-border rounded-xl p-4">
+              <div class="flex items-center gap-2.5">
+                <img
+                  src="https://storage.googleapis.com/banani-avatars/avatar/female/13-17/Southeast Asian/5"
+                  class="w-9 h-9 rounded-full object-cover"
+                  data-component="@globalComponents/UserAvatar.jsx"
+                />
+                <div class="flex-1 min-w-0">
+                  <p
+                    class="font-headings font-extrabold text-sm text-foreground"
+                  >
+                    Ma Nwe
+                  </p>
+                  <p
+                    class="font-body font-medium text-xs text-muted-foreground"
+                  >
+                    Grade 9
+                  </p>
+                </div>
+                <div class="flex gap-0.5">
+                  <span
+                    class="text-accent"
+                    style="
+                      display: inline-flex;
+                      align-items: center;
+                      justify-content: center;
+                      flex-shrink: 0;
+                      width: 12px;
+                      height: 12px;
+                    "
+                    data-icon="star"
+                    data-component="@globalComponents/Icon.jsx"
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="12px"
+                      height="12px"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="4"
+                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"
+                      ></path></svg></span
+                  ><span
+                    class="text-accent"
+                    style="
+                      display: inline-flex;
+                      align-items: center;
+                      justify-content: center;
+                      flex-shrink: 0;
+                      width: 12px;
+                      height: 12px;
+                    "
+                    data-icon="star"
+                    data-component="@globalComponents/Icon.jsx"
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="12px"
+                      height="12px"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="4"
+                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"
+                      ></path></svg></span
+                  ><span
+                    class="text-accent"
+                    style="
+                      display: inline-flex;
+                      align-items: center;
+                      justify-content: center;
+                      flex-shrink: 0;
+                      width: 12px;
+                      height: 12px;
+                    "
+                    data-icon="star"
+                    data-component="@globalComponents/Icon.jsx"
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="12px"
+                      height="12px"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="4"
+                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"
+                      ></path></svg></span
+                  ><span
+                    class="text-accent"
+                    style="
+                      display: inline-flex;
+                      align-items: center;
+                      justify-content: center;
+                      flex-shrink: 0;
+                      width: 12px;
+                      height: 12px;
+                    "
+                    data-icon="star"
+                    data-component="@globalComponents/Icon.jsx"
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="12px"
+                      height="12px"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="4"
+                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"
+                      ></path></svg
+                  ></span>
+                </div>
+              </div>
+              <p
+                class="font-body font-medium text-sm text-foreground leading-relaxed mt-2.5"
+              >
+                Photo scan feature helped me solve my homework instantly. Thanks
+                Saya!
+              </p>
+            </div>
+          </div>
+          <button
+            class="mt-3 w-full bg-card border border-border rounded-full py-3 font-headings font-extrabold text-sm text-foreground flex items-center justify-center gap-2"
+            type="button"
+            data-media-type="banani-button"
+          >
+            <span data-file="/components/TeacherReviews.jsx" data-idx="3"
+              >See all 128 reviews</span
+            ><span
+              class=""
+              style="
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+                width: 16px;
+                height: 16px;
+              "
+              data-icon="chevron-down"
+              data-component="@globalComponents/Icon.jsx"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16px"
+                height="16px"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="3"
+                  d="m6 9l6 6l6-6"
+                ></path></svg
+            ></span>
+          </button>
+        </div>
+        <div
+          class="mx-5 mt-5 mb-5 bg-card border border-border rounded-xl p-4 flex items-center gap-3"
+        >
+          <div class="flex-1">
+            <p class="font-headings font-extrabold text-sm text-foreground">
+              <span data-file="/screens/TeacherProfile.jsx" data-idx="0"
+                >Ready to start learning?</span
+              >
+            </p>
+            <p class="font-body font-medium text-xs text-muted-foreground">
+              <span data-file="/screens/TeacherProfile.jsx" data-idx="1"
+                >Saya Maung is online now • အခု Online ဆောင်ရွက်နေသည်</span
+              >
+            </p>
+          </div>
+          <button
+            class="bg-primary rounded-full px-5 py-3 font-headings font-extrabold text-sm text-primary-foreground flex items-center gap-2 shrink-0"
+            type="button"
+            data-media-type="banani-button"
+          >
+            <span data-file="/screens/TeacherProfile.jsx" data-idx="2"
+              >Chat</span
+            ><span
+              class=""
+              style="
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+                width: 16px;
+                height: 16px;
+              "
+              data-icon="arrow-right"
+              data-component="@globalComponents/Icon.jsx"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16px"
+                height="16px"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="3"
+                  d="M5 12h14m-7-7l7 7l-7 7"
+                ></path></svg
+            ></span>
+          </button>
+        </div>
+        <div
+          class="bg-card border-t border-border px-4 pt-2.5 pb-6 flex justify-between"
+          data-component="@components/TutorBottomNav.jsx"
+        >
+          <button
+            class="flex flex-col items-center gap-1 px-2 py-1"
+            type="button"
+            data-media-type="banani-button"
+          >
+            <span
+              class="text-muted-foreground"
+              style="
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+                width: 22px;
+                height: 22px;
+              "
+              data-icon="house"
+              data-component="@globalComponents/Icon.jsx"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="22px"
+                height="22px"
+                viewBox="0 0 24 24"
+              >
+                <g
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2.1818181818181817"
+                >
+                  <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path>
+                  <path
+                    d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+                  ></path>
+                </g></svg></span
+            ><span class="font-body font-bold text-xs text-muted-foreground"
+              ><span data-file="/components/TutorBottomNav.jsx" data-idx="1"
+                >Home</span
+              ></span
+            ></button
+          ><button
+            class="flex flex-col items-center gap-1 px-2 py-1"
+            type="button"
+            data-media-type="banani-button"
+          >
+            <span
+              class="text-primary"
+              style="
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+                width: 22px;
+                height: 22px;
+              "
+              data-icon="messages-square"
+              data-component="@globalComponents/Icon.jsx"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="22px"
+                height="22px"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2.1818181818181817"
+                  d="M16 10a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 14.286V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2zm4-1a2 2 0 0 1 2 2v10.286a.71.71 0 0 1-1.212.502l-2.202-2.202A2 2 0 0 0 17.172 19H10a2 2 0 0 1-2-2v-1"
+                ></path></svg></span
+            ><span class="font-body font-bold text-xs text-primary"
+              ><span data-file="/components/TutorBottomNav.jsx" data-idx="2"
+                >Tutor</span
+              ></span
+            ><span class="w-1 h-1 rounded-full bg-primary"></span>
+          </button>
+          <div class="flex flex-col items-center gap-1 -mt-7">
+            <button
+              class="w-14 h-14 rounded-full bg-primary border-4 border-background flex items-center justify-center"
+              type="button"
+              data-media-type="banani-button"
+            >
+              <span
+                class="text-primary-foreground"
+                style="
+                  display: inline-flex;
+                  align-items: center;
+                  justify-content: center;
+                  flex-shrink: 0;
+                  width: 24px;
+                  height: 24px;
+                "
+                data-icon="scan-line"
+                data-component="@globalComponents/Icon.jsx"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24px"
+                  height="24px"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 7V5a2 2 0 0 1 2-2h2m10 0h2a2 2 0 0 1 2 2v2m0 10v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2m4-5h10"
+                  ></path></svg
+              ></span></button
+            ><span class="font-body font-bold text-xs text-muted-foreground"
+              ><span data-file="/components/TutorBottomNav.jsx" data-idx="0"
+                >Scan</span
+              ></span
+            >
+          </div>
+          <button
+            class="flex flex-col items-center gap-1 px-2 py-1"
+            type="button"
+            data-media-type="banani-button"
+          >
+            <span
+              class="text-muted-foreground"
+              style="
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+                width: 22px;
+                height: 22px;
+              "
+              data-icon="clipboard-list"
+              data-component="@globalComponents/Icon.jsx"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="22px"
+                height="22px"
+                viewBox="0 0 24 24"
+              >
+                <g
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2.1818181818181817"
+                >
+                  <rect width="8" height="4" x="8" y="2" rx="1" ry="1"></rect>
+                  <path
+                    d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2m4 7h4m-4 5h4m-8-5h.01M8 16h.01"
+                  ></path>
+                </g></svg></span
+            ><span class="font-body font-bold text-xs text-muted-foreground"
+              ><span data-file="/components/TutorBottomNav.jsx" data-idx="3"
+                >Tests</span
+              ></span
+            ></button
+          ><button
+            class="flex flex-col items-center gap-1 px-2 py-1"
+            type="button"
+            data-media-type="banani-button"
+          >
+            <span
+              class="text-muted-foreground"
+              style="
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+                width: 22px;
+                height: 22px;
+              "
+              data-icon="user-round"
+              data-component="@globalComponents/Icon.jsx"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="22px"
+                height="22px"
+                viewBox="0 0 24 24"
+              >
+                <g
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2.1818181818181817"
+                >
+                  <circle cx="12" cy="8" r="5"></circle>
+                  <path d="M20 21a8 8 0 0 0-16 0"></path>
+                </g></svg></span
+            ><span class="font-body font-bold text-xs text-muted-foreground"
+              ><span data-file="/components/TutorBottomNav.jsx" data-idx="4"
+                >You</span
+              ></span
+            >
+          </button>
+        </div>
+      </div>
+    </body>
+  </html>
+  <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
+</div>

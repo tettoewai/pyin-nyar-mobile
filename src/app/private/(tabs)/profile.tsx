@@ -34,6 +34,7 @@ import { Pressable, RefreshControl, ScrollView, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { SectionHeader } from ".";
 import { subjectTasks } from "./practice";
+import { useLogout } from "@/hooks/auth";
 
 const weekProgress = [
   { day: "MON", point: 20 },
@@ -96,9 +97,13 @@ const BADGES = [
   },
 ];
 
+function handleSignout() {}
+
 export default function Profile() {
   const insets = useSafeAreaInsets();
   const [refreshing, setRefreshing] = useState(false);
+
+  const logout = useLogout();
 
   const { maxPoint, totalPoints, todayIndex } = useMemo(() => {
     const max = Math.max(...weekProgress.map((d) => d.point), 1);
@@ -158,7 +163,7 @@ export default function Profile() {
                 uri: "https://storage.googleapis.com/banani-avatars/avatar/female/13-17/Southeast Asian/8",
               }}
               alt="Ma Thiri Kyaw profile"
-              className="object-fill size-full rounded-full"
+              className="object-cover size-full rounded-full"
             />
             <Button
               size="icon"
@@ -185,8 +190,12 @@ export default function Profile() {
               _extra={{ className: "" }}
             >
               <ThemedIcon as={Zap} size={25} className="text-secondary" />
-              <Text className="font-heading text-center text-[15px]">2,840</Text>
-              <Text className="font-body text-center text-[11px] text-muted-foreground">XP</Text>
+              <Text className="font-heading text-center text-[15px]">
+                2,840
+              </Text>
+              <Text className="font-body text-center text-[11px] text-muted-foreground">
+                XP
+              </Text>
             </GridItem>
             <GridItem
               className="bg-card border border-border p-3 flex items-center justify-center rounded-3xl gap-2"
@@ -194,7 +203,9 @@ export default function Profile() {
             >
               <ThemedIcon as={Flame} size={25} className="text-red-500" />
               <Text className="font-heading text-center text-[15px]">12</Text>
-              <Text className="font-body text-center text-[11px] text-muted-foreground">Streak</Text>
+              <Text className="font-body text-center text-[11px] text-muted-foreground">
+                Streak
+              </Text>
             </GridItem>
             <GridItem
               className="bg-card border border-border p-3 flex items-center justify-center rounded-3xl gap-2"
@@ -202,7 +213,9 @@ export default function Profile() {
             >
               <ThemedIcon as={Trophy} size={25} className="text-primary" />
               <Text className="font-heading text-center text-[15px]">#14</Text>
-              <Text className="font-body text-center text-[11px] text-muted-foreground">Rank</Text>
+              <Text className="font-body text-center text-[11px] text-muted-foreground">
+                Rank
+              </Text>
             </GridItem>
             <GridItem
               className="bg-card border border-border p-3 flex items-center justify-center rounded-3xl gap-2"
@@ -210,7 +223,9 @@ export default function Profile() {
             >
               <ThemedIcon as={Gem} size={25} className="text-blue-500" />
               <Text className="font-heading text-center text-[15px]">240</Text>
-              <Text className="font-body text-center text-[11px] text-muted-foreground">Gems</Text>
+              <Text className="font-body text-center text-[11px] text-muted-foreground">
+                Gems
+              </Text>
             </GridItem>
           </Grid>
 
@@ -282,15 +297,21 @@ export default function Profile() {
             <Box className="flex-row border-t border-border mt-4 pt-3">
               <VStack className="items-center flex-1 border-r border-border/70">
                 <Heading size="md">53</Heading>
-                <Text className="font-body text-[13px] text-muted-foreground">Lessons</Text>
+                <Text className="font-body text-[13px] text-muted-foreground">
+                  Lessons
+                </Text>
               </VStack>
               <VStack className="items-center flex-1 border-r border-border/70">
                 <Heading size="md">8</Heading>
-                <Text className="font-body text-[13px] text-muted-foreground">Tests</Text>
+                <Text className="font-body text-[13px] text-muted-foreground">
+                  Tests
+                </Text>
               </VStack>
               <VStack className="items-center flex-1">
                 <Heading size="md">91%</Heading>
-                <Text className="font-body text-[13px] text-muted-foreground">Accuracy</Text>
+                <Text className="font-body text-[13px] text-muted-foreground">
+                  Accuracy
+                </Text>
               </VStack>
             </Box>
           </View>
@@ -300,7 +321,7 @@ export default function Profile() {
               <SectionHeader
                 title="Matric Readiness • ပြင်ဆင်မှု"
                 action="Details"
-                onAction={() => router.push("/(tabs)/practice")}
+                onAction={() => router.push("/private/(tabs)/practice")}
               />
             </View>
             {subjectTasks.map((item, index) => (
@@ -315,7 +336,7 @@ export default function Profile() {
                 <SubjectTaskCard
                   task={item}
                   variant="mini"
-                  onPress={() => router.push("/(tabs)/practice")}
+                  onPress={() => router.push("/private/(tabs)/practice")}
                 />
               </View>
             ))}
@@ -544,6 +565,7 @@ export default function Profile() {
               accessibilityRole="button"
               accessibilityLabel="Sign out"
               className="flex-row items-center justify-between px-4 py-3 active:opacity-70"
+              onPress={() => logout.mutateAsync()}
             >
               <View className="flex-row gap-3 items-center flex-1 min-w-0">
                 <View className="size-10 rounded-2xl bg-destructive/10 items-center justify-center shrink-0">

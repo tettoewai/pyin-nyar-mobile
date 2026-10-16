@@ -295,7 +295,7 @@ export default function Index() {
                 numberOfLines={1}
                 className="font-heading text-foreground"
               >
-                {greeting()}, Thiri! 👋
+                {greeting()}, Thiri!
               </Text>
               <Text
                 numberOfLines={1}
@@ -371,7 +371,7 @@ export default function Index() {
             </Box>
           </View>
 
-          <Link href="/tutor/saya_maung" asChild>
+          <Link href="/private/tutor/saya_maung" asChild>
             <Pressable
               accessibilityRole="button"
               accessibilityLabel="Ask your AI teacher anything"
@@ -399,7 +399,7 @@ export default function Index() {
             {SUGGESTIONS.map((s) => (
               <Pressable
                 key={s}
-                onPress={() => router.push("/tutor/saya_maung")}
+                onPress={() => router.push("/private/tutor/saya_maung")}
                 accessibilityRole="button"
                 accessibilityLabel={`Ask: ${s}`}
                 className="shrink-0 bg-primary-foreground/10 border border-primary-foreground/25 px-3.5 py-2 rounded-full active:opacity-80"
@@ -424,7 +424,7 @@ export default function Index() {
 
         {/* ── Continue learning ────────────────────────────── */}
         <Pressable
-          onPress={() => router.push("/(tabs)/practice")}
+          onPress={() => router.push("/private/(tabs)/practice")}
           accessibilityRole="button"
           accessibilityLabel="Resume Quadratic Equations chapter 3, 68 percent complete"
           className="bg-card border border-border rounded-3xl w-full mt-3 p-4 active:opacity-90"
@@ -507,7 +507,7 @@ export default function Index() {
             </Box>
           </View>
           <Button
-            onPress={() => router.push("/(tabs)/practice")}
+            onPress={() => router.push("/private/(tabs)/practice")}
             className="bg-card rounded-full ml-2"
             size="sm"
           >
@@ -522,13 +522,13 @@ export default function Index() {
           <SectionHeader
             title="Today's practice • လေ့ကျင့်ခန်း"
             action="History"
-            onAction={() => router.push("/(tabs)/practice")}
+            onAction={() => router.push("/private/(tabs)/practice")}
           />
           <Box className="flex-col gap-2.5 mt-2.5">
             {PRACTICE_ITEMS.map((item) => (
               <Pressable
                 key={item.id}
-                onPress={() => router.push("/(tabs)/practice")}
+                onPress={() => router.push("/private/(tabs)/practice")}
                 accessibilityRole="button"
                 accessibilityLabel={`${item.title}, ${item.meta}`}
                 className="w-full bg-card rounded-3xl p-3.5 flex flex-row justify-between items-center border border-border active:opacity-90"
@@ -579,7 +579,7 @@ export default function Index() {
           <SectionHeader
             title="Subjects • ဘာသာရပ်များ"
             action="See all"
-            onAction={() => router.push("/(tabs)/practice")}
+            onAction={() => router.push("/private/(tabs)/practice")}
           />
           <View className="w-full mt-2.5">
             <Grid className="gap-2.5" _extra={{ className: "grid-cols-3" }}>
@@ -592,7 +592,7 @@ export default function Index() {
                   <Pressable
                     accessibilityRole="button"
                     accessibilityLabel={`${item.title} ${item.titleEn}, ${item.lessons} lessons`}
-                    onPress={() => router.push("/(tabs)/practice")}
+                    onPress={() => router.push("/private/(tabs)/practice")}
                     className="active:opacity-80"
                   >
                     <Box
@@ -644,7 +644,7 @@ export default function Index() {
               students from Yangon & Mandalay studied today
             </Text>
             <Pressable
-              onPress={() => router.push("/(tabs)/tutor")}
+              onPress={() => router.push("/private/(tabs)/tutor")}
               accessibilityRole="button"
               accessibilityLabel="Join study chat"
               className="px-3 py-2 rounded-full active:opacity-70"

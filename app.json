@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "pyin-nyar",
+    "name": "Pyin Nyar",
     "slug": "pyin-nyar",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -8,7 +8,8 @@
     "scheme": "pyinnyar",
     "userInterfaceStyle": "automatic",
     "ios": {
-      "icon": "./assets/expo.icon"
+      "icon": "./assets/expo.icon",
+      "bundleIdentifier": "com.tettoewai.pyinnyar"
     },
     "android": {
       "adaptiveIcon": {
@@ -17,7 +18,8 @@
         "backgroundImage": "./assets/images/android-icon-background.png",
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.tettoewai.pyinnyar"
     },
     "web": {
       "output": "static",
@@ -25,6 +27,12 @@
     },
     "plugins": [
       "expo-router",
+      [
+        "@react-native-google-signin/google-signin",
+        {
+          "iosUrlScheme": "com.googleusercontent.apps.13944345523-2r7ed27ckk102hmm02bb524h5vv4if18"
+        }
+      ],
       [
         "expo-splash-screen",
         {
@@ -40,11 +48,24 @@
           "hidden": false,
           "style": "dark"
         }
-      ]
+      ],
+      "expo-secure-store",
+      "expo-build-properties",
+      "./plugins/withIosSceneLifecycle"
     ],
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "expo-status-bar": {
+        "style": "dark",
+        "hidden": false
+      },
+      "eas": {
+        "projectId": "c17f9964-67e9-4401-bb72-9788b1a55796"
+      }
     }
   }
 }
