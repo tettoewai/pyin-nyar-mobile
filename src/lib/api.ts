@@ -1,6 +1,12 @@
 import { clearSession, getTokens, saveSession } from "./session";
 
 const BASE = process.env.EXPO_PUBLIC_API_URL!;
+
+export type ApiResponse<T> = {
+  success: boolean;
+  message?: string;
+  data: T;
+};
 export class ApiError extends Error {
   constructor(
     public status: number,

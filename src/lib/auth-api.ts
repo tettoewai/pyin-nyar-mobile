@@ -1,6 +1,6 @@
 import { GoogleSignin } from "@react-native-google-signin/google-signin";
 import { clearSession, saveSession } from "./session";
-import { api } from "./api";
+import { api, type ApiResponse } from "./api";
 
 export type User = {
   id: string;
@@ -18,11 +18,17 @@ GoogleSignin.configure({
 
 async function persist(pair: Pair) {
   await saveSession(pair.accessToken, pair.refreshToken, pair.expiresIn);
-  return api<User>("/auth/me", { method: "GET" });
+  return me();
+}
+
+async function me() {
+  return api<ApiResponse<User>>("/auth/me", { method: "GET" }).then(
+    (r) => r.data,
+  );
 }
 
 export const authApi = {
-  me: () => api<User>("/auth/me", { method: "GET" }),
+  me,
   requestOtp: (email: string, purpose: "signup" | "reset-password") =>
     api("/auth/otp/request", {
       method: "POST",
