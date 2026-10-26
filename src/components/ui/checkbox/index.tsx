@@ -25,10 +25,10 @@ const LabelWrapper = React.forwardRef<
 const StyledUIIcon = withUniwind(UIIcon);
 
 const IconWrapper = React.forwardRef<
-  React.ComponentRef<typeof UIIcon>,
-  React.ComponentPropsWithoutRef<typeof UIIcon>
+  React.ComponentRef<typeof StyledUIIcon>,
+  React.ComponentPropsWithoutRef<typeof StyledUIIcon>
 >(function IconWrapper({ ...props }, ref) {
-  return <StyledUIIcon {...props} ref={ref} />;
+  return <StyledUIIcon {...props} ref={ref as never} />;
 });
 
 const SCOPE = 'CHECKBOX';
@@ -120,7 +120,11 @@ const CheckboxLabel = React.forwardRef<
 type ICheckboxIconProps = React.ComponentPropsWithoutRef<
   typeof UICheckbox.Icon
 > &
-  VariantProps<typeof checkboxIconStyle>;
+  VariantProps<typeof checkboxIconStyle> & {
+    size?: number | string;
+    height?: number | string;
+    width?: number | string;
+  };
 
 const CheckboxIcon = React.forwardRef<
   React.ComponentRef<typeof UICheckbox.Icon>,

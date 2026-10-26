@@ -18,8 +18,22 @@ export class ApiError extends Error {
 
 let refreshPromise: Promise<string | null> | null = null;
 
+async function fetchWithTimeout(
+  url: string,
+  init: RequestInit = {},
+  ms = 10_000,
+): Promise<Response> {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), ms);
+  try {
+    return await fetch(url, { ...init, signal: controller.signal });
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 async function doRefresh(oldRefresh: string): Promise<string | null> {
-  const res = await fetch(`${BASE}/auth/refresh`, {
+  const res = await fetchWithTimeout(`${BASE}/auth/refresh`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ refreshToken: oldRefresh }),
@@ -40,7 +54,7 @@ export async function api<T>(path: string, init: RequestInit = {}): Promise<T> {
     access = await refreshPromise;
   }
   const call = (token: string | null) =>
-    fetch(`${BASE}${path}`, {
+    fetchWithTimeout(`${BASE}${path}`, {
       ...init,
       headers: {
         "Content-Type": "application/json",

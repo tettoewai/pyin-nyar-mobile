@@ -142,7 +142,7 @@ export default function Conversation({
 
   if (id) {
     return (
-      <Link href={`/tutor/${id}`} asChild>
+      <Link href={`/private/tutor/${id}`} asChild>
         <Pressable
           className={rootClassName}
           accessibilityRole="button"

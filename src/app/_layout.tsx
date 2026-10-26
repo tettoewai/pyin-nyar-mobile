@@ -17,19 +17,34 @@ import { useColorScheme } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
 
-SplashScreen.preventAutoHideAsync();
+SplashScreen.preventAutoHideAsync().catch(() => {});
 
 export default function RootLayout() {
-  const [fontsLoaded] = useFonts({
+  const [fontsLoaded, fontError] = useFonts({
     "Nunito-Regular": Nunito_400Regular,
     "Nunito-SemiBold": Nunito_600SemiBold,
     "Nunito-Bold": Nunito_700Bold,
     "Nunito-ExtraBold": Nunito_800ExtraBold,
   });
+  const fontsReady = fontsLoaded || !!fontError;
 
   const colorScheme = useColorScheme() ?? "light";
 
-  if (!fontsLoaded) return null;
+  useEffect(() => {
+    if (fontError) {
+      console.warn("Nunito fonts failed to load, using system fonts", fontError);
+    }
+  }, [fontError]);
+
+  // Safety net: never let the splash hang indefinitely in Expo Go.
+  useEffect(() => {
+    const t = setTimeout(() => {
+      SplashScreen.hideAsync().catch(() => {});
+    }, 5000);
+    return () => clearTimeout(t);
+  }, []);
+
+  if (!fontsReady) return null;
 
   return (
     <QueryClientProvider client={queryClient}>

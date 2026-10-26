@@ -60,7 +60,8 @@ function TabItem({ label, icon, focused, onPress }: TabItemProps) {
 export function CustomTabBar({
   state,
   descriptors,
-  navigation,
+  emitter,
+  navigateToTab,
 }: CustomTabBarProps) {
   const insets = useSafeAreaInsets();
 
@@ -79,13 +80,13 @@ export function CustomTabBar({
           const tabName = route.name.replace(/\/index$/, "");
 
           const onPress = () => {
-            const event = navigation.emit({
+            const event = emitter.emit({
               type: "tabPress",
               target: route.key,
               canPreventDefault: true,
             });
             if (!focused && !event.defaultPrevented) {
-              navigation.navigate(route.name);
+              navigateToTab(route.key);
             }
           };
 

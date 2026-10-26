@@ -137,7 +137,7 @@ const ModalContent = React.forwardRef<
       entering={ZoomIn.duration(200).withInitialValues({
         transform: [{ scale: 0.9 }],
         opacity: 0,
-      })}
+      } as never)}
       exiting={FadeOut.duration(200)}
       {...props}
       className={modalContentStyle({

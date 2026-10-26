@@ -1,4 +1,3 @@
-import { GoogleSignin } from "@react-native-google-signin/google-signin";
 import { clearSession, saveSession } from "./session";
 import { api, type ApiResponse } from "./api";
 
@@ -7,14 +6,31 @@ export type User = {
   email: string;
   role: string;
   name: string | null;
+  userName: string;
   avatarUrl: string | null;
 };
 type Pair = { accessToken: string; refreshToken: string; expiresIn: number };
 
-GoogleSignin.configure({
-  webClientId: process.env.EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID,
-  iosClientId: process.env.EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID,
-});
+function getGoogleSignin() {
+  try {
+    const { GoogleSignin } = require("@react-native-google-signin/google-signin") as typeof import("@react-native-google-signin/google-signin");
+    GoogleSignin.configure({
+      webClientId: process.env.EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID,
+      iosClientId: process.env.EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID,
+    });
+    return GoogleSignin;
+  } catch {
+    if (!__DEV__) {
+      throw new Error(
+        "Google Sign-in native module is missing. Rebuild the app with a development or production build.",
+      );
+    }
+    console.warn(
+      "[auth] Google Sign-in is unavailable in Expo Go. Run npx expo run:ios/android to enable it.",
+    );
+    return null;
+  }
+}
 
 async function persist(pair: Pair) {
   await saveSession(pair.accessToken, pair.refreshToken, pair.expiresIn);
@@ -37,6 +53,7 @@ export const authApi = {
   signup: (b: {
     email: string;
     password: string;
+    userName: string;
     confirmPassword: string;
     otp: string;
   }) =>
@@ -50,6 +67,10 @@ export const authApi = {
       body: JSON.stringify({ email, password }),
     }).then(persist),
   google: async () => {
+    const GoogleSignin = getGoogleSignin();
+    if (!GoogleSignin) {
+      throw new Error("Google Sign-in is unavailable in Expo Go.");
+    }
     await GoogleSignin.hasPlayServices();
     const r = await GoogleSignin.signIn();
     const idToken = r.data?.idToken;
@@ -67,7 +88,7 @@ export const authApi = {
           body: JSON.stringify({ refreshToken: refresh }),
         });
     } finally {
-      await GoogleSignin.signOut().catch(() => null);
+      getGoogleSignin()?.signOut().catch(() => null);
       await clearSession();
     }
   },

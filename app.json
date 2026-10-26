@@ -51,7 +51,9 @@
       ],
       "expo-secure-store",
       "expo-build-properties",
-      "./plugins/withIosSceneLifecycle"
+      "./plugins/withIosSceneLifecycle",
+      "expo-image",
+      "expo-web-browser"
     ],
     "experiments": {
       "typedRoutes": true,

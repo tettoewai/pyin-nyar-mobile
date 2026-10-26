@@ -47,7 +47,15 @@ export const useLogin = () =>
   );
 export const useSignup = () =>
   useAuthMutation<
-    [{ email: string; password: string; confirmPassword: string; otp: string }]
+    [
+      {
+        email: string;
+        password: string;
+        userName: string;
+        confirmPassword: string;
+        otp: string;
+      },
+    ]
   >((b) => authApi.signup(b));
 export const useGoogleLogin = () => useAuthMutation<[]>(() => authApi.google());
 export const useRequestOtp = () =>

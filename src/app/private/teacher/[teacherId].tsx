@@ -151,7 +151,7 @@ export default function TeacherProfile() {
   const [refreshing, setRefreshing] = useState(false);
   const [saved, setSaved] = useState(false);
 
-  const openChat = () => router.push(`/tutor/${id}`);
+  const openChat = () => router.push(`/private/tutor/${id}`);
 
   return (
     <View

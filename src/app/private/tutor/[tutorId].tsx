@@ -35,6 +35,7 @@ import {
   ScrollView,
   TextInput,
   View,
+  type ScrollViewInstance,
 } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
@@ -197,7 +198,7 @@ export default function TeacherChat() {
   const key = Array.isArray(tutorId) ? tutorId[0] : (tutorId ?? "");
   const meta = TEACHER_META[key] ?? TEACHER_META.saya_maung;
   const insets = useSafeAreaInsets();
-  const scrollRef = useRef<ScrollView>(null);
+  const scrollRef = useRef<ScrollViewInstance>(null);
   const idRef = useRef(0);
   const replyTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -313,7 +314,7 @@ export default function TeacherChat() {
             </Pressable>
 
             <Pressable
-              onPress={() => router.push(`/teacher/${tutorId}`)}
+              onPress={() => router.push(`/private/teacher/${tutorId}`)}
               className="relative"
             >
               <Image
@@ -330,7 +331,7 @@ export default function TeacherChat() {
             <View className="flex-1 min-w-0">
               <View className="flex-row items-center gap-1.5">
                 <Link
-                  href={`/teacher/${tutorId}`}
+                  href={`/private/teacher/${tutorId}`}
                   numberOfLines={1}
                   className="font-heading text-[15px] text-foreground"
                 >

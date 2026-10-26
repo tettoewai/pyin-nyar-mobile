@@ -21,6 +21,7 @@ import {
   Mail,
   Send,
   ShieldCheck,
+  User,
 } from "lucide-react-native";
 import { useEffect, useMemo, useRef, useState } from "react";
 import {
@@ -101,12 +102,14 @@ export default function LoginPage() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const [email, setEmail] = useState("");
+  const [userName, setUserName] = useState("");
   const [code, setCode] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [formError, setFormError] = useState<string | null>(null);
   const [touched, setTouched] = useState({
     email: false,
+    userName: false,
     code: false,
     password: false,
     confirm: false,
@@ -115,6 +118,7 @@ export default function LoginPage() {
   const [cooldown, setCooldown] = useState(0);
   const [codeSent, setCodeSent] = useState(false);
 
+  const userNameRef = useRef<any>(null);
   const emailRef = useRef<any>(null);
   const codeRef = useRef<any>(null);
   const passwordRef = useRef<any>(null);
@@ -140,6 +144,7 @@ export default function LoginPage() {
 
   const errors = useMemo(() => {
     const e: {
+      userName?: string;
       email?: string;
       code?: string;
       password?: string;
@@ -149,6 +154,9 @@ export default function LoginPage() {
     else if (!EMAIL_RE.test(email.trim()))
       e.email = "That email doesn't look right — check for typos.";
     if (isCreatingAccount) {
+      if (!userName.trim()) e.userName = "Choose a username.";
+      else if (!/^[a-zA-Z0-9_]{3,20}$/.test(userName.trim()))
+        e.userName = "3-20 characters: letters, numbers, or underscores.";
       if (!code.trim()) e.code = "Enter the 6-digit code we sent you.";
       else if (!/^\d{6}$/.test(code.trim()))
         e.code = "Code should be 6 digits.";
@@ -165,6 +173,7 @@ export default function LoginPage() {
     }
     return e;
   }, [
+    userName,
     email,
     code,
     password,
@@ -175,6 +184,7 @@ export default function LoginPage() {
 
   const visibleErrors = {
     email: touched.email ? errors.email : undefined,
+    userName: touched.userName ? errors.userName : undefined,
     code: touched.code ? errors.code : undefined,
     password: touched.password ? errors.password : undefined,
     confirm: touched.confirm ? errors.confirm : undefined,
@@ -192,7 +202,13 @@ export default function LoginPage() {
 
   const switchMode = (creating: boolean) => {
     setIsCreatingAccount(creating);
-    setTouched({ email: false, code: false, password: false, confirm: false });
+    setTouched({
+      userName: false,
+      email: false,
+      code: false,
+      password: false,
+      confirm: false,
+    });
     setFormError(null);
     router.setParams({ page: creating ? "sign-up" : "sign-in" });
   };
@@ -203,12 +219,24 @@ export default function LoginPage() {
   };
 
   const markAllTouched = () =>
-    setTouched({ email: true, code: true, password: true, confirm: true });
+    setTouched({
+      userName: true,
+      email: true,
+      code: true,
+      password: true,
+      confirm: true,
+    });
 
   const handleSubmit = async () => {
     markAllTouched();
     if (isCreatingAccount) {
-      if (errors.email || errors.code || errors.password || errors.confirm)
+      if (
+        errors.userName ||
+        errors.email ||
+        errors.code ||
+        errors.password ||
+        errors.confirm
+      )
         return;
     } else if (errors.email || errors.password) {
       return;
@@ -218,6 +246,7 @@ export default function LoginPage() {
       if (isCreatingAccount) {
         await signup.mutateAsync([
           {
+            userName: userName,
             email: email.trim(),
             password,
             confirmPassword,
@@ -227,6 +256,7 @@ export default function LoginPage() {
       } else {
         await login.mutateAsync([email.trim(), password]);
       }
+      console.log("Logged in successfully");
       router.replace("/private/(tabs)");
     } catch (e) {
       setFormError(
@@ -377,6 +407,48 @@ export default function LoginPage() {
 
           {/* Form card */}
           <View className="rounded-[24px] border border-border/70 bg-card p-3.5 shadow-sm shadow-black/5">
+            {/* Username (sign-up only) */}
+            {isCreatingAccount ? (
+              <View className={fieldGap}>
+                <Text className="mb-1.5 font-heading text-[13px] text-foreground">
+                  Username
+                </Text>
+                <Input
+                  isInvalid={!!visibleErrors.userName}
+                  isDisabled={isSubmitting}
+                  className={`min-h-12 rounded-2xl border bg-muted/30 px-4 ${inputBorder("userName", visibleErrors.userName)}`}
+                >
+                  <InputField
+                    ref={userNameRef}
+                    value={userName}
+                    onChangeText={(v) => {
+                      setUserName(v);
+                    }}
+                    onBlur={() => {
+                      setTouched((t) => ({ ...t, userName: true }));
+                      setFocused(null);
+                    }}
+                    onFocus={() => setFocused("userName")}
+                    type="text"
+                    placeholder="alan"
+                    placeholderTextColor={placeholderColor}
+                    autoCapitalize="none"
+                    autoCorrect={false}
+                    returnKeyType="next"
+                    onSubmitEditing={() => emailRef.current?.focus()}
+                  />
+                  <InputSlot className="pr-1">
+                    <ThemedIcon
+                      as={User}
+                      size={17}
+                      className="text-muted-foreground"
+                    />
+                  </InputSlot>
+                </Input>
+                <FieldError message={visibleErrors.userName} />
+              </View>
+            ) : null}
+
             {/* Email */}
             <View className={fieldGap}>
               <Text className="mb-1.5 font-heading text-[13px] text-foreground">
